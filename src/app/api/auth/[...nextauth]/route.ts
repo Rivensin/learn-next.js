@@ -1,15 +1,17 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { login } from "@/lib/firebase/services";
+import { compare } from "bcrypt";
 
 const authOptions : NextAuthOptions = 
 {
   session: {
-    strategy: 'jwt',
+    strategy: 'jwt', //sesi user akan disimpan di JWT
   },
-  secret: 'riven',
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    CredentialsProvider({
+    CredentialsProvider({ //Provider custom yang memungkinkan user login pakai email & password.
       type: 'credentials',
       name: 'credentials',
       credentials: {
@@ -20,26 +22,28 @@ const authOptions : NextAuthOptions =
           label: 'Password', type: 'password'
         },
       },
-      async authorize(credentials){
-        const {email,password} = credentials as {email : string,password : string}
+      async authorize(credentials){  //Tempat login diverifikasi
+        const {email,password} = credentials as {email: string, password: string}
 
-        const user : any = {
-          id: 1,
-          fullname: 'rivensin',
-          email: 'riven@gmail.com',
-          role: 'admin',
-        }
+        const user : any = await login({email})
 
-        if(email === 'riven@gmail.com' && password === '123'){
-          return user
+        if(user){
+          const passwordConfirm = await compare(password, user.password)
+
+          if(passwordConfirm){
+            return user
+          } else {
+            return null
+          }
         } else {
           return null
         }
+
       }
     })
   ],
   callbacks: {
-    async jwt({token, account, profile, user}: any){
+    async jwt({token, account, profile, user}: any){ //menambahkan data user ke JWT token.
       if(account?.provider === 'credentials'){
         token.email = user.email
         token.fullname = user.fullname
@@ -48,7 +52,7 @@ const authOptions : NextAuthOptions =
       return token
     },
 
-    async session({session, token} : any){
+    async session({session, token} : any){ // Data dari JWT dipindahkan ke session agar bisa diakses pakai useSession().
       if('email' in token){
         session.user.email = token.email
       }
@@ -70,7 +74,7 @@ const authOptions : NextAuthOptions =
   }
 }
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions) // Ini wajib di App Router agar NextAuth bisa handle request GET & POST di route /api/auth/[...nextauth].
 
 export {
   handler as GET, handler as POST

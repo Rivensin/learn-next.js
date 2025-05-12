@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
 function Navbar() {
-  const {status} : {status: string} = useSession()
+  const {data: session, status} : {data: any, status: string} = useSession()
   const pathname = usePathname()
   const router = useRouter()
   const disableNavbar = ['/login', '/register']
-
+  
   if(disableNavbar.includes(pathname)){
     return null
   }
@@ -35,16 +35,19 @@ function Navbar() {
       <div>
         {status === 'unauthenticated' ? (
           <button 
-          className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'
-          onClick={() => signIn()}>
-            Login
-        </button>
+            className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'
+            onClick={() => signIn()}>
+              Login
+          </button>
         ) : (
-          <button 
-          className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'
-          onClick={() => signOut()}>
-            Logout 
-        </button>
+          <div className='flex'>
+            <h4 className='text-white mr-3'>{session?.user?.fullname}</h4>
+            <button 
+              className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'
+              onClick={() => signOut()}>
+                Logout 
+          </button>
+          </div>
         )}
       </div>
     </div>

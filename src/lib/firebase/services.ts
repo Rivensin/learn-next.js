@@ -45,3 +45,22 @@ export async function register(data: {fullname: string, email:string, password: 
   }
 
 }
+
+export async function login(data:{email: string}){
+  const q = query(collection(firestore,'users'), where('email','==',data.email))
+
+  const snapshot = await getDocs(q)
+
+  const user = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+
+  if(user){
+    return user[0]
+  } else {
+    return null
+  }
+
+
+}

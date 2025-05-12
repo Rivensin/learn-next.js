@@ -17,7 +17,7 @@ type ProductPage= {
       {/* <h1>{params.slug ? 'detail product page' : 'product page'}</h1> */}
       {products.data.length > 0 && (
         products.data.map((product: any) => (
-        <Link href={`product/detail/${product.id}`} 
+        <Link href={`product/detail/${product.id}`}
               key ={product.id} 
               className="w-11/12 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
           <img className="p-8 rounded-t-lg object-cover h-96 w-full" src={product.image} alt="product image" />
