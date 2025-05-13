@@ -1,12 +1,11 @@
 'use client'
 import { signIn, useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
   const {data: session, status} : {data: any, status: string} = useSession()
   const pathname = usePathname()
-  const router = useRouter()
   const disableNavbar = ['/login', '/register']
   
   if(disableNavbar.includes(pathname)){

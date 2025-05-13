@@ -33,8 +33,9 @@ export async function register(data: {fullname: string, email:string, password: 
   if(users.length > 0){
     return {status:false, message:'email already exist', statusCode: 400}
   } else {
-    data.role = 'admin'
+    data.role = 'member'
     data.password = await bcrypt.hash(data.password,10)
+    
     
     try {
       await addDoc(collection(firestore,'users'),data)
@@ -61,6 +62,5 @@ export async function login(data:{email: string}){
   } else {
     return null
   }
-
 
 }

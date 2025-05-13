@@ -5,7 +5,7 @@ export function mainMiddleware(request: NextRequest){
   return NextResponse.next() //Middleware utama yang hanya melanjutkan ke proses selanjutnya tanpa mengubah apapun.
 }
 
-export default withAuth(mainMiddleware,['/dashboard']) //Menjalankan mainMiddleware, tapi dengan proteksi autentikasi di route /dashboard.
+export default withAuth(mainMiddleware,['/dashboard','/profile','/login','/register']) //Menjalankan mainMiddleware, tapi dengan proteksi autentikasi di route /dashboard.
 
 
 //const isLogin = true

@@ -13,7 +13,7 @@ const authOptions : NextAuthOptions =
   providers: [
     CredentialsProvider({ //Provider custom yang memungkinkan user login pakai email & password.
       type: 'credentials',
-      name: 'credentials',
+      name: 'Credentials',
       credentials: {
         email : {
           label: 'Email', type: 'email'

@@ -5,11 +5,11 @@ import { redirect } from 'next/dist/server/api-utils'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-function LoginPage() {
+function LoginPage({searchParams}: any) {
   const router = useRouter()
   const [error,setError] = useState('')
   const [isLoading,setIsLoading] = useState(false)
-
+  const callbackURL = searchParams.callbackUrl || '/'
   const handleLogin = async(e: any) => {
     setIsLoading(true)
     e.preventDefault()
@@ -18,12 +18,12 @@ function LoginPage() {
         redirect: false,
         email: e.target.email.value,
         password: e.target.password.value,
-        callbackUrl: '/dashboard'
+        callbackUrl: callbackURL
       })
 
       if(!res?.error){
         setIsLoading(false)
-        router.push('/dashboard')
+        router.push(callbackURL)
       } else {
         if(res.status === 401){
           setIsLoading(false)
