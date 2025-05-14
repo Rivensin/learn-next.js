@@ -1,8 +1,9 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { login } from "@/lib/firebase/services";
+import { login, loginWithGoogle } from "@/lib/firebase/services";
 import { compare } from "bcrypt";
+import GoogleProvider from 'next-auth/providers/google'
 
 const authOptions : NextAuthOptions = 
 {
@@ -20,7 +21,7 @@ const authOptions : NextAuthOptions =
         },
         password : {
           label: 'Password', type: 'password'
-        },
+        }, 
       },
       async authorize(credentials){  //Tempat login diverifikasi
         const {email,password} = credentials as {email: string, password: string}
@@ -40,6 +41,11 @@ const authOptions : NextAuthOptions =
         }
 
       }
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_OAUTH_CLIENT_ID || '',
+      clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || '',
+
     })
   ],
   callbacks: {
@@ -48,6 +54,22 @@ const authOptions : NextAuthOptions =
         token.email = user.email
         token.fullname = user.fullname
         token.role = user.role
+      }
+
+      if(account?.provider === 'google'){
+        const data = {
+          fullname: user.name,
+          email: user.email,
+          type: 'google'
+        }
+
+        await loginWithGoogle(data, (result: {status: boolean, data: any}) => {
+          if(result.status){
+            token.email = result.data.email
+            token.fullname = result.data.fullname
+            token.role = result.data.role
+          }
+        })
       }
       return token
     },
