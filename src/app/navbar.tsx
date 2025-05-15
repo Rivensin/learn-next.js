@@ -2,6 +2,7 @@
 import { signIn, useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 function Navbar() {
   const {data: session, status} : {data: any, status: string} = useSession()
@@ -13,8 +14,8 @@ function Navbar() {
   }
   
   return (
-    <div className='flex bg-gray-800 py-2 px-5 justify-between'>
-      <div className='flex'>
+    <div className='flex bg-gray-800 py-2 px-5 justify-between '>
+      <div className='flex items-center'>
         <h1 className='text-white'>navbar</h1>
         <ul className='flex ml-5'>
           <Link href='/'>
@@ -39,7 +40,8 @@ function Navbar() {
               Login
           </button>
         ) : (
-          <div className='flex'>
+          <div className='flex justify-center items-center'>
+            <Image src='/images/profile.png' className='w-10 h-10 rounded-full mr-3' alt='profile' width={100} height={100}/>
             <h4 className='text-white mr-3'>{session?.user?.fullname}</h4>
             <button 
               className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'

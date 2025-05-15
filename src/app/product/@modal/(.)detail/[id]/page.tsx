@@ -1,15 +1,23 @@
 import { getData } from "@/services/products"
-import Modal from "@/components/core/Modal"
+import Image from "next/image"
+import dynamic from "next/dynamic"
 
-export default async function DetailProductPage(props : any){
-  const {params} = props
-  const product = await getData('http://localhost:3000/api/product?id=' + params.id)
-  
+export default async function DetailProductPage(props: any){
+  const {id} = props.params
+  const product = await getData(`http://localhost:3000/api/product?id=${id}`)
+
+  const Modal = dynamic(() => import("@/components/core/Modal"),{
+    loading: () => <p>Loading...</p>
+  })
+
   return (
     <Modal>
-      <img src={product.data.image} 
-            alt=""
-            className="w-full object-cover aspect-square col-span-2 h-[592px]"></img>
+      <Image src={product.data.image}
+             className="w-full object-cover aspect-square col-span-2 h-[600px]"
+             alt="product"
+             width={500}
+             height={500}>
+      </Image>
       <div className="bg-white p-6 px-6">
         <h3>{product.data.name}</h3>
         <p>Price : ${product.data.price}</p>

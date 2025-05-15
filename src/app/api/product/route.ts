@@ -28,8 +28,9 @@ export async function GET(request: NextRequest){
   // const id = searchParams.get('id')
 
   const id = request.nextUrl.searchParams.get('id')
-
+  console.log(id)
   if(id){
+    
     const detailProduct = await retriveDataById('products',id)
     if(detailProduct){
       return NextResponse.json(

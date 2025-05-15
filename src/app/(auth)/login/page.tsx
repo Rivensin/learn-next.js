@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { redirect } from 'next/dist/server/api-utils'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 
 function LoginPage({searchParams}: any) {
@@ -80,7 +81,12 @@ function LoginPage({searchParams}: any) {
             <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500"> Register</Link>
           </p>
           <div className="flex items-center justify-center mt-2">
-            <img src='https://yt3.googleusercontent.com/K8WVrQAQHTTwsHEtisMYcNai7p7XIlyEAdZg86qYw78ye57r5DRemHQ9Te4PcD_v98HB-ZvQjQ=s900-c-k-c0x00ffffff-no-rj' width='30px' height='30px'></img>
+            <Image src='https://yt3.googleusercontent.com/K8WVrQAQHTTwsHEtisMYcNai7p7XIlyEAdZg86qYw78ye57r5DRemHQ9Te4PcD_v98HB-ZvQjQ=s900-c-k-c0x00ffffff-no-rj' 
+                   className='w-8 h-8'
+                   width={30} 
+                   height={30}
+                   alt='google'
+                   loading='lazy'/>
             <button type='button' className="ml-2 text-sm/6 text-gray-500 cursor-pointer" onClick={() => signIn('google',{callbackURL, redirect: false})}>
               Login With Google
             </button>

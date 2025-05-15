@@ -45,7 +45,6 @@ const authOptions : NextAuthOptions =
     GoogleProvider({
       clientId: process.env.GOOGLE_OAUTH_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || '',
-
     })
   ],
   callbacks: {
@@ -58,7 +57,7 @@ const authOptions : NextAuthOptions =
 
       if(account?.provider === 'google'){
         const data = {
-          fullname: user.name,
+          fullname: user.fullname,
           email: user.email,
           type: 'google'
         }
