@@ -18,7 +18,7 @@ export default async function DetailProductPage(props: any){
              width={500}
              height={500}>
       </Image>
-      <div className="bg-white p-6 px-6">
+      <div className="bg-white mt-6">
         <h3>{product.data.name}</h3>
         <p>Price : ${product.data.price}</p>
       </div>

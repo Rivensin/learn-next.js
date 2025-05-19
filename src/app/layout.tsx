@@ -1,9 +1,9 @@
-'use client'
+// 'use client'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar";
-import { SessionProvider } from "next-auth/react";
+import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -20,6 +20,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Aplikasi untuk belajar nextjs',
+  authors: [{name:'riven', url:'http://localhost:3000'}],
+  icons: {
+    icon: '/icon.png',
+  },
+  openGraph: {
+    title: 'Home',
+    description: 'Aplikasi untuk belajar nextjs',
+    images: [
+      {
+        url: '/icon.png',
+        width: 800,
+        height: 600,
+      }
+    ],
+    url: 'http://localhost:3000',
+  },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,15 +49,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
-        <title>My App</title>
-      </head>
       <body className={poppins.className}>
       {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}> */}
-        <SessionProvider>
+        <SessionProviderWrapper>
           <Navbar /> 
           {children}
-        </SessionProvider>
+        </SessionProviderWrapper>
         
       </body>
     </html>
