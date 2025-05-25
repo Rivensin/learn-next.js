@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import Image from 'next/image'
 
 function Register() {
   const router = useRouter()
@@ -28,15 +29,14 @@ function Register() {
     } else {
       setError('email already exist')
       setIsLoading(false)
-    }
-    
+    } 
   }
 
   return (
     <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 border">
       <div className='mx-auto shadow-gray-400 px-10 py-10 rounded-lg shadow-md'>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"/>
+          <Image className="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" width={500} height={500}/>
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Register your account</h2>
         </div>
 

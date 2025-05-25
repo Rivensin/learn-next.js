@@ -1,8 +1,6 @@
-import { ReactNode } from "react"
-
 export default function Layout(
   {children,products,analytics,payments}: 
-  {children : React.ReactNode,
+  {children : React.  ReactNode,
    products : React.ReactNode,
    analytics : React.ReactNode,
    payments : React.ReactNode,

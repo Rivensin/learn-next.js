@@ -21,9 +21,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'),
   title: 'Home',
   description: 'Aplikasi untuk belajar nextjs',
-  authors: [{name:'riven', url:'http://localhost:3000'}],
+  authors: [{name:'riven', url:process.env.NEXT_PUBLIC_API_URL}],
   icons: {
     icon: '/icon.png',
   },
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
         height: 600,
       }
     ],
-    url: 'http://localhost:3000',
+    url: process.env.NEXT_PUBLIC_API_URL,
   },
 }
 

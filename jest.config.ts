@@ -9,7 +9,12 @@ const config: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   collectCoverage: true, // ✅ Enable coverage collection
-  collectCoverageFrom: ['src/**/*.{js,ts,jsx,tsx}'], // ✅ Specify what to include in coverage
+  collectCoverageFrom: [ // ✅ Specify what to include in coverage
+    'src/**/*.{js,ts,jsx,tsx}',
+    '!src/app/api/**',
+    '!src/lib/**',
+    '!src/middleware/**',
+    '!src/middleware.ts'], 
   testMatch: ['**/__tests__/**/*.(spec|test).ts?(x)', '**/?(*.)+(spec|test).ts?(x)'], // ✅ Optional: match test files explicitly
 }
 
