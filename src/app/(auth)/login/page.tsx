@@ -9,7 +9,10 @@ function LoginPage({searchParams}: any) {
   const router = useRouter()
   const [error,setError] = useState('')
   const [isLoading,setIsLoading] = useState(false)
-  const callbackURL = searchParams.callbackUrl || '/'
+  const callbackURL = '/login'
+  
+  // const callbackURL = searchParams.callbackUrl || '/'
+  
   const handleLogin = async(e: any) => {
     setIsLoading(true)
     e.preventDefault()

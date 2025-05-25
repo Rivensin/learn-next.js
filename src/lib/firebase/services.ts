@@ -36,7 +36,6 @@ export async function register(data: {fullname: string, email:string, password: 
     data.role = 'member'
     data.password = await bcrypt.hash(data.password,10)
     
-    
     try {
       await addDoc(collection(firestore,'users'),data)
       return {status: true,message: 'register success', statusCode: 200}
@@ -44,7 +43,6 @@ export async function register(data: {fullname: string, email:string, password: 
       return {status: false, message: 'register failed', statusCode: 400}
     }  
   }
-
 }
 
 export async function login(data:{email: string}){
@@ -67,15 +65,15 @@ export async function login(data:{email: string}){
 
 export async function loginWithGoogle(data : any, callback: any){
   const q = query(collection(firestore,'users'), where('email','==',data.email))
-
   const snapshot = await getDocs(q)
 
-  const user: any= snapshot.docs.map(doc => ({
+  const user: any = snapshot.docs.map(doc => ({
     id: doc.id,
-    ...doc.data(),
+    ...doc.data()
   }))
 
   if(user.length > 0){
+    data.fullname = user[0].fullname
     data.role = user[0].role
     await updateDoc(doc(firestore,'users',user[0].id),data).then(() => {
       callback({status: true, data: data})
@@ -86,5 +84,4 @@ export async function loginWithGoogle(data : any, callback: any){
       callback({status: true, data: data})
     })
   }
-
 }

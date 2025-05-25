@@ -62,12 +62,12 @@ const authOptions : NextAuthOptions =
           type: 'google'
         }
 
-        await loginWithGoogle(data, (result: {status: boolean, data: any}) => {
-          if(result.status){
-            token.email = result.data.email
-            token.fullname = result.data.fullname
-            token.role = result.data.role
-          }
+      await loginWithGoogle(data, (result: {status: boolean, data: any}) => {
+        if(result.status){
+          token.email = result.data.email
+          token.fullname = result.data.fullname
+          token.role = result.data.role
+        }
         })
       }
       return token
@@ -79,7 +79,7 @@ const authOptions : NextAuthOptions =
       }
 
       if('fullname' in token){
-        session.user.fullname = token.fullname
+        session.user.name = token.fullname
       }
 
       if('role' in token){

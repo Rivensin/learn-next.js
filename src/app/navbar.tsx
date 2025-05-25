@@ -42,7 +42,7 @@ function Navbar() {
         ) : (
           <div className='flex justify-center items-center'>
             <Image src='/images/profile.png' className='w-10 h-10 rounded-full mr-3' alt='profile' width={100} height={100}/>
-            <h4 className='text-white mr-3'>{session?.user?.fullname}</h4>
+            <h4 className='text-white mr-3'>{session?.user?.name}</h4>
             <button 
               className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'
               onClick={() => signOut()}>
