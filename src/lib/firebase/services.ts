@@ -73,7 +73,6 @@ export async function loginWithGoogle(data : any, callback: any){
   }))
 
   if(user.length > 0){
-    data.fullname = user[0].fullname
     data.role = user[0].role
     await updateDoc(doc(firestore,'users',user[0].id),data).then(() => {
       callback({status: true, data: data})
@@ -85,3 +84,31 @@ export async function loginWithGoogle(data : any, callback: any){
     })
   }
 }
+
+// export async function loginWithGoogle(data : any, callback: any){
+
+//   const firestoreData = {
+//     fullname: String(data.name), 
+//     email: String(data.email), 
+//     type: 'google',
+//     role: 'member'
+//   };
+
+//   const q = query(collection(firestore,'users'), where('email','==',firestoreData.email))
+//   const snapshot = await getDocs(q)
+
+//   const user: any = snapshot.docs.map(doc => ({
+//     id: doc.id,
+//     ...doc.data()
+//   }))
+
+//   if(user.length > 0){
+//     await updateDoc(doc(firestore,'users',user[0].id), {...firestoreData,role: user[0].role}).then(() => {
+//       callback({status: true, data: {...user[0],...firestoreData}})
+//     })
+//   } else {
+//       const docRef = await addDoc(collection(firestore,'users'), firestoreData).then (() => {
+//       callback({status: true, data: {...firestoreData}})
+//     })
+//   }
+// }
