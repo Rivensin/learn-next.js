@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig: NextConfig = {
+  
   /* config options here */
   images : {
     remotePatterns : [
@@ -28,7 +31,7 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self';",
-              "script-src 'self' https://accounts.google.com 'unsafe-inline';",
+              `script-src 'self' https://accounts.google.com 'unsafe-inline' ${isDev ? " 'unsafe-eval'" : ''};`,
               "connect-src 'self' https://www.googleapis.com https://accounts.google.com;",
               "img-src * data: blob:;",
               "style-src 'self' 'unsafe-inline';",

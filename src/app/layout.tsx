@@ -1,14 +1,21 @@
 // 'use client'
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar";
 import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper";
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['100','200','300','500','600','700','800','900']
+  weight: ['100','200','300','500','600','700','800','900'],
+  variable: '--font-poppins',
 })
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-roboto',
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,21 +49,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
+export default function RootLayout({children,} : Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-      {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}> */}
+      <body className={`${poppins.className} ${roboto.variable}`} >
         <SessionProviderWrapper>
           <Navbar /> 
           {children}
         </SessionProviderWrapper>
-        
       </body>
     </html>
   );
