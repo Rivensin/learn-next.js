@@ -2,6 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import useSWR from "swr"
+import { useState } from "react"
 
 // type ProductPage= { 
 //     params : {
@@ -13,6 +14,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 function ProductPage(props: any) {
   const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, fetcher)
+  const [category,setCategory] = useState('Burnt Cheese Cake')
   
   const products = {
     data: data?.data
@@ -26,11 +28,16 @@ function ProductPage(props: any) {
       </div>
 
       <div className="ml-4 mt-6 mb-11 flex justify-center items-center flex-wrap">
-        <div className="bg-white text-md text-black hover:bg-[#f84d78] p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer">Burnt Cheese Cake</div>
-        <div className="bg-white text-md text-black hover:bg-[#f84d78] p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer">Custom Cake</div>
-        <div className="bg-white text-md text-black hover:bg-[#f84d78] p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer">Fudgy Brownie</div>
-        <div className="bg-white text-md text-black hover:bg-[#f84d78] p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer">Soft Cookies</div>
-        <div className="bg-white text-md text-black hover:bg-[#f84d78] p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer">Tiramisu Cake</div>
+        <div className={`bg-white text-md text-black hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'Burnt Cheese Cake' ? 'bg-[#f84d78] text-white' : ''}`}>
+          Burnt Cheese Cake</div>
+        <div className={`bg-white text-md text-black hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'Custom Cake' ? 'bg-[#f84d78] text-white' : ''}`}>
+          Custom Cake</div>
+        <div className={`bg-white text-md text-black hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'Fudgy Brownies' ? 'bg-[#f84d78] text-white' : ''}`}>
+          Fudgy Brownies</div>
+        <div className={`bg-white text-md text-black hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'Soft Cookies' ? 'bg-[#f84d78] text-white' : ''}`}>
+          Soft Cookies</div>
+        <div className={`bg-white text-md text-black hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'Tiramisu Cake' ? 'bg-[#f84d78] text-white' : ''}`}>
+          Tiramisu Cake</div>
       </div>
       
       <div className="ml-2 text-[#5E50D2] text-xl">Burnt Cheese Cake</div>
@@ -50,7 +57,7 @@ function ProductPage(props: any) {
                 />
               </Link>
               
-                <div className="pb-10 pt-2 text-md font-bold tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] transition-all duration-600">
+                <div className="pb-10 pt-2 text-md font-bold tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] hover:text-white transition-all duration-600">
                   <h2>{product.name}</h2>
                 </div>
                 {/* <div className="flex items-center justify-between mt-3">

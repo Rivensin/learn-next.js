@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar";
+import Footer from "./footer";
 import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper";
 
 const poppins = Poppins({
@@ -56,6 +57,7 @@ export default function RootLayout({children,} : Readonly<{children: React.React
         <SessionProviderWrapper>
           <Navbar /> 
           {children}
+          <Footer />
         </SessionProviderWrapper>
       </body>
     </html>
