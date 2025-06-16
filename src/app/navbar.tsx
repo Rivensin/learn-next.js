@@ -36,7 +36,7 @@ function Navbar() {
   return (
     <header className='w-full flex bg-[#f7f7f9] items-center absolute top-0 left-0 z-10 4xl:py-2 4xl:px-5'>
       <div className="flex relative items-center justify-center">
-        <button type='button' className='ml-1' onClick={() => setHamburgerMenu(prev => !prev)}>
+        <button type='button' className='ml-2' onClick={() => setHamburgerMenu(prev => !prev)}>
           <span className='w-[30px] h-[2px] my-2 block bg-black opacity-50 rounded'></span>
           <span className={`${hamburgerMenu ? 'w-[30px]' : 'w-[18px]'} h-[2px] my-2 block bg-black opacity-50 rounded duration-700`}></span>
           <span className='w-[30px] h-[2px] my-2 block bg-black opacity-50 rounded'></span>
@@ -57,14 +57,14 @@ function Navbar() {
           <Link href='/'>
           <li className={`4xl:text-xl 4xl:mr-14 mr-4 mb-1 hover:text-purple-700 duration-500 ${pathname === '/' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Home</li>
           </Link>
-          <Link href='/product'>
+          <Link href={`/product/${encodeURIComponent('Burnt Cheese Cake')}`}>
           <li className={`4xl:text-xl 4xl:mr-14 mr-4 mb-1 hover:text-purple-700 duration-500 ${pathname === '/product' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Product</li>
           </Link>
           <Link href='/about'>
           <li className={`4xl:text-xl 4xl:mr-14 mr-4 mb-1 hover:text-purple-700 duration-500 ${pathname === '/about' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>About</li>
           </Link>
-          <Link href='/about/profile'>
-          <li className={`4xl:text-xl 4xl:mr-14 mr-4 mb-1 hover:text-purple-700 duration-500 ${pathname === '/about/profile' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Outlet</li>
+          <Link href='/outlet'>
+          <li className={`4xl:text-xl 4xl:mr-14 mr-4 mb-1 hover:text-purple-700 duration-500 ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Outlet</li>
           </Link>
           <Link href='/about/profile'>
           <li className={`4xl:text-xl 4xl:mr-14 mr-4 mb-1 hover:text-purple-700 duration-500 ${pathname === '/about/profile' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Review</li>
@@ -76,7 +76,7 @@ function Navbar() {
           <Image 
             src='/icons/instagram.png' 
             alt='instagram'
-            className='w-6 h-6 absolute right-6 top-1/2 -translate-y-1/2 group-hover'
+            className='w-9 h-9 absolute -right-20 top-1/2 -translate-y-1/2 group-hover'
             width={500}
             height={500}
           />

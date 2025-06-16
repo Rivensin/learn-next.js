@@ -18,18 +18,22 @@ export default function DetailProductPage(props: any){
   }
 
   const Modal = dynamic(() => import("@/components/core/Modal"),{
-    loading: () => <p>Loading...</p>
+    loading: () => 
+      <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center justify-center max-w-5xl">
+         <div className="h-6 w-6 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+        <span className="text-3xl text-white">Loading...</span>
+      </div>
   })
 
   return (
     <Modal>
       <img src={product.data?.image}
-             className="w-full object-cover aspect-square col-span-2 h-[600px]"
-             alt="product">
+             className="w-full object-cover aspect-square col-span-2 h-[500px]"
+             alt={product.data?.name}>
       </img>
       <div className="bg-white mt-6">
         <h3>{product.data?.name}</h3>
-        <p>Price : ${product.data?.price}</p>
+        <p>{product.data?.desc}</p>
       </div>
     </Modal>
       
