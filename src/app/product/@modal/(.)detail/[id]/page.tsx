@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image"
 import dynamic from "next/dynamic"
 import useSWR from "swr"
 import { useParams } from "next/navigation"

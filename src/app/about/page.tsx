@@ -3,40 +3,42 @@ import Image from "next/image"
 function About() {
   return (
     <>
-      <div className="ml-4 mt-36 flex items-center">
-        <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg">Our Products</span>
-      </div>
+      <div className="ml-4 sm:ml-16 md:ml-16 lg:ml-28">
+        <div className="mt-36 flex items-center">
+          <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
+          <span className="ml-10 text-[#5E50D2] text-lg">About</span>
+        </div>
 
-      <div className="ml-4 text-4xl mt-10 max-w-lg">
-          Dlooti is a new Japanese-inspired boutique bakery and pastry shop
-      </div>
+        <div className="text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
+            Dlooti is a new Japanese-inspired boutique bakery and pastry shop
+        </div>
 
-      <div className="ml-4 text-lg mt-10 max-w-lg">
-        Our products have been created to have high quality and taste. Using premium natural ingredients with traditional recipes and strict quality control, our products are wholesomely nutritious and have consistent quality. 
-      </div>
+        <div className="text-md md:text-lg mt-10 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl">
+          Our products have been created to have high quality and taste. Using premium natural ingredients with traditional recipes and strict quality control, our products are wholesomely nutritious and have consistent quality. 
+        </div>
 
-      <div className="ml-4 mt-14 flex items-center">
-        <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg">Our Philosophy</span>
-      </div>
+        <div className="mt-14 flex items-center">
+          <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
+          <span className="ml-10 text-[#5E50D2] text-lg">Our Philosophy</span>
+        </div>
 
-      <div className="ml-4 text-4xl mt-10 max-w-lg">
-        High-quality, refined, and delicious bread and pastries
-      </div>
+        <div className="text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
+          High-quality, refined, and delicious bread and pastries
+        </div>
 
-      <div className="ml-4 text-lg mt-10 max-w-lg">
-        We have taken into account all of these key factors as we have developed our products with high quality, taste, and presentation in mind. As we strive to build a reputation as a leader in quality, we have invested in skilled human resources, synergistically moving together with highly automated manufacturing equipment.  
-      </div>
+        <div className="text-md md:text-lg mt-10 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl">
+          We have taken into account all of these key factors as we have developed our products with high quality, taste, and presentation in mind. As we strive to build a reputation as a leader in quality, we have invested in skilled human resources, synergistically moving together with highly automated manufacturing equipment.  
+        </div>
 
-      <div className="w-full max-w-xs mx-auto mt-10">
-        <Image
-          src="/cover/cover.jpg"
-          alt="cover"
-          width={382}
-          height={510}
-          className="w-full h-auto object-cover"
-        />
+        <div className="w-full max-w-xs mx-auto mt-10">
+          <Image
+            src="/cover/cover.jpg"
+            alt="cover"
+            width={682}
+            height={510}
+            className="w-full sm:w-[382px] md:w-[500px] lg:w-[682px] xl:w-[800px] 2xl:w-[900px] h-[510px] object-cover"
+          />
+      </div>
     </div>
     </>
   )
