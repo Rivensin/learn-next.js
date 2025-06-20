@@ -34,7 +34,7 @@ function Navbar() {
   },[])
   
   return (
-    <header className='w-full flex bg-[#f7f7f9] items-center justify-between lg:justify-center absolute top-0 left-0 z-10 4xl:py-2 4xl:px-5'>
+    <header className='w-full flex bg-[#f7f7f9] items-center justify-between lg:justify-center absolute top-0 left-0 z-[9999] 4xl:py-2 4xl:px-5'>
       <div className='flex items-center'>
         <button type='button' className='ml-2 mr-3 lg:hidden' onClick={() => setHamburgerMenu(prev => !prev)}>
           <span className='w-[30px] h-[2px] my-2 block bg-black opacity-50 rounded'></span>

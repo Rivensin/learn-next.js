@@ -41,5 +41,6 @@ body {
 
 .leaflet-container {
   font-family: 'Poppins', sans-serif !important;
+  z-index: 1 !important;
 }
 

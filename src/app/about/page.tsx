@@ -30,16 +30,37 @@ function About() {
           We have taken into account all of these key factors as we have developed our products with high quality, taste, and presentation in mind. As we strive to build a reputation as a leader in quality, we have invested in skilled human resources, synergistically moving together with highly automated manufacturing equipment.  
         </div>
 
-        <div className="w-full max-w-xs mx-auto mt-10">
-          <Image
-            src="/cover/cover.jpg"
-            alt="cover"
-            width={682}
-            height={510}
-            className="w-full sm:w-[382px] md:w-[500px] lg:w-[682px] xl:w-[800px] 2xl:w-[900px] h-[510px] object-cover"
-          />
+        <div className="flex mt-10 justify-evenly">
+          <div className="mb-2 mr-2">
+            <Image
+              src="/cover/cover.jpg"
+              alt="cover"
+              width={682}
+              height={510}
+              className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
+            />
+         </div>
+         <div className="mb-2 mr-2">
+            <Image
+              src="/product/Custom Cake/Half Cake.jpeg"
+              alt="cover"
+              width={682}
+              height={510}
+              className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
+            />
+         </div>
+         <div className="mb-2 mr-2">
+            <Image
+              src="/product/Soft Cookies/Giant Cookie - Character.jpeg"
+              alt="cover"
+              width={682}
+              height={510}
+              className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
+            />
+         </div>
+        </div>
+        
       </div>
-    </div>
     </>
   )
 }
