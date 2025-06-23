@@ -2,7 +2,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import useSWR from "swr"
-import { useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -12,7 +11,6 @@ function ProductPage(props: any) {
   const {category} = useParams()
   const decoded = category ? decodeURIComponent(category as string) : '' 
   const router = useRouter()
-  // const [category,setCategory] = useState('Burnt Cheese Cake')
   
   const products = {
     data: data?.data
@@ -51,24 +49,24 @@ function ProductPage(props: any) {
           Tiramisu Cake</button>
       </div>
       
-      <div className="ml-2 text-[#5E50D2] text-2xl font-bold">{decoded}</div>
+      <div className="ml-3 text-[#5E50D2] text-2xl font-bold">{decoded}</div>
 
-      <div className="mt-10 mx-auto max-w-sm 4xl:grid 4xl:grid-cols-4 4xl:mt-5 4xl:my-5 place-items-center"> 
+      <div className="mt-10 gap-6 grid mx-5 max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> 
         {filteredProduct?.length > 0 && (
           filteredProduct?.map((product: any) => (
             <div key ={product.id} 
-                 className='4xl:w-11/12 max-w-sm bg-white mb-6 shadow-lg'>
+                 className='mb-6 shadow-lg'>
               <div className="overflow-hidden group">
-                <Link href={`product/detail/${product.id}`}>
+                <Link href={`../product/detail/${product.id}`}>
                   <Image src={product.image}
-                        className="object-cover h-96 w-full group-hover:scale-110 transition-all duration-700"  
+                        className="object-cover h-60 sm:h-72 md:h-80 lg:h-96 w-full group-hover:scale-110 transition-all duration-700"  
                         alt="product image" 
                         width={500} 
                         height={500} 
                         loading='lazy'/>
                 </Link>
               </div>
-              <div className="pb-10 pt-2 text-md ont-bold tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] transition-all duration-600">
+              <div className="pb-10 pt-2 h-20 text-md tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] transition-all duration-700">
                 <span>{product.name}</span>
               </div>         
             </div>

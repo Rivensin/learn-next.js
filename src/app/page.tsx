@@ -21,14 +21,31 @@ export default function Home() {
 
       <p className="ml-4 mt-10 text-3xl">Indulge yourself with our premium bread and pastries.</p>
       
-      <Link href={`/product/${encodeURIComponent('Burnt Cheese Cake')}`}><PostCardCategory src='/product/Burnt Cheese Cake/Burnt Cheese Cake Brownie.jpeg' alt='BURNT CHEESE CAKE'/></Link>
-      <Link href={`/product/${encodeURIComponent('Custom Cake')}`}><PostCardCategory src='/product/Custom Cake/Money Cake.jpeg' alt='CUSTOM CAKE'/></Link>
-      <Link href={`/product/${encodeURIComponent('Fudgy Brownies')}`}><PostCardCategory src='/product/Fudgy Brownie/Fudgy Brown Mix 6 Toppings.jpeg' alt='FUDGY BROWNIE'/></Link>
-      <Link href={`/product/${encodeURIComponent('Soft Cookies')}`}><PostCardCategory src='/product/Soft Cookies/Custom Giant Cookie.jpeg' alt='SOFT COOKIES'/></Link>
-      <Link href={`/product/${encodeURIComponent('Tiramisu Cake')}`}><PostCardCategory src='/product/Tiramisu Cake/Tiramisu Cake.jpeg' alt='TIRAMISU CAKE'/></Link>
-      
-      
+      <Link href={`/product/${encodeURIComponent('Burnt Cheese Cake')}`}>
+        <PostCardCategory src='/product/Burnt Cheese Cake/Burnt Cheese Cake Brownie.jpeg' 
+                          alt='BURNT CHEESE CAKE'/>
+      </Link>
 
+      <Link href={`/product/${encodeURIComponent('Custom Cake')}`}>
+        <PostCardCategory src='/product/Custom Cake/Money Cake.jpeg' 
+                          alt='CUSTOM CAKE'/>
+      </Link>
+
+      <Link href={`/product/${encodeURIComponent('Fudgy Brownies')}`}>
+        <PostCardCategory src='/product/Fudgy Brownie/Fudgy Brown Mix 6 Toppings.jpeg' 
+                          alt='FUDGY BROWNIE'/>
+      </Link>
+      
+      <Link href={`/product/${encodeURIComponent('Soft Cookies')}`}>
+        <PostCardCategory src='/product/Soft Cookies/Custom Giant Cookie.jpeg' 
+                          alt='SOFT COOKIES'/>
+      </Link>
+
+      <Link href={`/product/${encodeURIComponent('Tiramisu Cake')}`}>
+        <PostCardCategory src='/product/Tiramisu Cake/Tiramisu Cake.jpeg' 
+                          alt='TIRAMISU CAKE'/>
+      </Link>
+    
     </div>
   );
 }
