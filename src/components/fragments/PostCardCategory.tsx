@@ -2,7 +2,8 @@ import Image from "next/image"
 
 export default function PostCardCategory({src,alt} : {src: string,alt: string}){
   return (
-    <div className="h-72 sm:h-80 lg:h-96 max-w-lg sm:max-w-2xl lg:max-w-4xl my-8 mx-14 md:mx-auto relative overflow-hidden group transition-all rounded">
+    <div className="w-full h-72 sm:h-80 lg:h-96 xl:h-[450px] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl aspect-[4/5] overflow-hidden rounded shadow-lg mx-auto relative group transition-all my-8">
+    {/* <div className="h-72 sm:h-80 lg:h-96 xl:h-[450px] max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl my-8 mx-14 xl:mx-auto relative overflow-hidden group transition-all rounded"></div> */}
       <Image src={src}
         alt={alt}
         className="w-full h-full object-cover duration-300 group-hover:scale-110"

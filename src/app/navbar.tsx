@@ -74,15 +74,32 @@ function Navbar() {
         </ul>
       </div>
 
-      <div>
-        <Image 
-          src='/icons/instagram.png' 
-          alt='instagram'
-          className='w-9 h-9 mr-4'
-          width={500}
-          height={500}
-        />
+      <div className='flex'>
+        <div className='group'>
+          <Link href='https://www.instagram.com/dlooti_' target='_blank'>
+            <Image 
+            src='/icons/instagram.png' 
+            alt='instagram'
+            className='w-9 h-9 mr-4 group-hover:-translate-y-2 shadow-lg duration-300 ease-out'
+            width={500}
+            height={500}
+            />
+        </Link>
       </div>
+
+      <div className='group'>
+        <Link href='https://www.tiktok.com/@dlooti' target='_blank'>
+          <Image 
+            src='/icons/tiktok.png' 
+            alt='tiktok'
+            className='w-9 h-9 mr-4 group-hover:-translate-y-2 shadow-lg duration-300 ease-out '
+            width={500}
+            height={500}
+            />
+        </Link>
+      </div>
+      </div>
+      
     </header>
   ) 
 }

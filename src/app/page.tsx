@@ -22,7 +22,7 @@ export default function Home() {
       <p className="ml-4 mt-10 text-3xl">Indulge yourself with our premium bread and pastries.</p>
       
       <Link href={`/product/${encodeURIComponent('Burnt Cheese Cake')}`}>
-        <PostCardCategory src='/product/Burnt Cheese Cake/Burnt Cheese Cake Brownie.jpeg' 
+        <PostCardCategory src='/product/Burnt Cheese Cake/Burnt Cheese Cake with Topping.jpeg' 
                           alt='BURNT CHEESE CAKE'/>
       </Link>
 

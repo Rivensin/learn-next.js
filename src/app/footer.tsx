@@ -52,13 +52,13 @@ export default function Footer() {
             <div className="text-[#f84d78] text-xl font-semibold mt-4">About</div>
             <div className="flex flex-col mt-2 text-white">
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
-                <Link href='#'>About Us</Link>
+                <Link href='/about'>About Us</Link>
               </div>
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
-                <Link href='#'>Location</Link>
+                <Link href='/outlet'>Location</Link>
               </div>
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
-                <Link href='#'>Contact Us</Link>
+                <Link href='/review'>Review</Link>
               </div>
             </div>
           </div>
@@ -67,10 +67,10 @@ export default function Footer() {
             <div className="text-[#f84d78] text-xl font-semibold mt-4">Support</div>
             <div className="flex flex-col mt-2 text-white">
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
-                <Link href='#'>Privacy Policy</Link>
+                <Link href='#' className="pointer-events-none">Privacy Policy</Link>
               </div>
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
-                <Link href='#'>Terms</Link>
+                <Link href='#' className="pointer-events-none">Terms</Link>
               </div>
             </div>
             </div>
