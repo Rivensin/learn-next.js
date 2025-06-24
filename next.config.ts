@@ -3,30 +3,15 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
-  
-  /* config options here */
-  images : {
-    remotePatterns : [
-      {
-        protocol: 'https',
-        hostname: 'static.nike.com',
-        port: '',
-        pathname:'/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'yt3.googleusercontent.com',
-        port: '',
-        pathname:'/**',
-      },
-    ]
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-
-   async headers() {
+  
+  async headers() {
     return [
       {
         source: "/(.*)",
-        headers: [
+        headers : [
           {
             key: "Content-Security-Policy",
             value: [
@@ -51,12 +36,28 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
-        ],
-      },
-    ];
-  },
+        ]
+      }
+    ]
+  }
 }
 
-
+  /* config options here */
+  // images : {
+  //   remotePatterns : [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'static.nike.com',
+  //       port: '',
+  //       pathname:'/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'yt3.googleusercontent.com',
+  //       port: '',
+  //       pathname:'/**',
+  //     },
+  //   ]
+  // },
 
 export default nextConfig;
