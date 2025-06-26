@@ -7,9 +7,15 @@ import { useParams, useRouter } from "next/navigation"
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 function ProductPage(props: any) {
-  const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, fetcher)
   const {category} = useParams()
-  const decoded = category ? decodeURIComponent(category as string) : '' 
+  const formatedCategory = typeof category === 'string' ? 
+    category
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
+  : ''
+
+  const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, fetcher)
   const router = useRouter()
   
   const products = {
@@ -17,7 +23,7 @@ function ProductPage(props: any) {
   }
 
   const filteredProduct = products.data?.filter((product: any) => 
-    product.category.toLowerCase() === decoded.toLowerCase()
+    product.category.toLowerCase() === (typeof category === 'string' ? category.toLowerCase() : '')
   ).sort((a:any,b:any) => 
     a.name.localeCompare(b.name, 'en', {sensitivity: 'base'})
   );
@@ -30,26 +36,26 @@ function ProductPage(props: any) {
       </div>
 
       <div className="ml-4 mt-6 mb-11 flex justify-center items-center flex-wrap">
-        <button onClick={() => router.replace(`/product/${encodeURIComponent('Burnt Cheese Cake')}`)} 
-                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${decoded === 'Burnt Cheese Cake' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
+        <button onClick={() => router.replace(`/product/burnt-cheese-cake`)} 
+                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'burnt-cheese-cake' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
           Burnt Cheese Cake
         </button>
-        <button onClick={() => router.replace(`/product/${encodeURIComponent('Custom Cake')}`)}
-                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${decoded === 'Custom Cake' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
+        <button onClick={() => router.replace(`/product/custom-cake`)}
+                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'custom-cake' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
           Custom Cake
         </button>
-        <button onClick={() => router.replace(`/product/${encodeURIComponent('Fudgy Brownies')}`)} 
-                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${decoded === 'Fudgy Brownies' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
+        <button onClick={() => router.replace(`/product/fudgy-brownie`)} 
+                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'fudgy-brownie' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
           Fudgy Brownies</button>
-        <button onClick={() => router.replace(`/product/${encodeURIComponent('Soft Cookies')}`)}  
-                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${decoded === 'Soft Cookies' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
+        <button onClick={() => router.replace(`/product/soft-cookies`)}  
+                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'soft-cookies' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
           Soft Cookies</button>
-        <button onClick={() => router.replace(`/product/${encodeURIComponent('Tiramisu Cake')}`)}  
-                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${decoded === 'Tiramisu Cake' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
+        <button onClick={() => router.replace(`/product/tiramisu-cake`)}  
+                className={` text-md hover:bg-[#f84d78] hover:text-white p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-bold cursor-pointer ${category === 'tiramisu-cake' ? 'bg-[#f84d78] text-white' : 'text-black bg-white'}`}>
           Tiramisu Cake</button>
       </div>
       
-      <div className="ml-3 text-[#5E50D2] text-2xl font-bold">{decoded}</div>
+      <div className="ml-3 text-[#5E50D2] text-2xl font-bold">{formatedCategory}</div>
 
       <div className="mt-10 gap-6 grid mx-5 max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> 
         {filteredProduct?.length > 0 && (
@@ -65,7 +71,7 @@ function ProductPage(props: any) {
                         height={500} 
                         loading='lazy'/>
                 </Link>
-              </div>
+              </div>   
               <div className="pb-10 pt-2 h-20 text-md tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] transition-all duration-700">
                 <span>{product.name}</span>
               </div>         

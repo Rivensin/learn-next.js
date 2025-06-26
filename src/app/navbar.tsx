@@ -59,7 +59,7 @@ function Navbar() {
           <Link href='/'>
             <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Home</li>
           </Link>
-          <Link href={`/product/${encodeURIComponent('Burnt Cheese Cake')}`}>
+          <Link href={`/product/burnt-cheese-cake`}>
             <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/product' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Product</li>
           </Link>
           <Link href='/about'>

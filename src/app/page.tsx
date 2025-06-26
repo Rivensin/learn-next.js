@@ -21,27 +21,27 @@ export default function Home() {
 
       <p className="ml-4 mt-10 text-3xl">Indulge yourself with our premium bread and pastries.</p>
       
-      <Link href={`/product/${encodeURIComponent('Burnt Cheese Cake')}`}>
-        <PostCardCategory src='/product/Burnt Cheese Cake/Burnt Cheese Cake with Topping.jpeg' 
+      <Link href={`/product/burnt-cheese-cake`}>
+        <PostCardCategory src='/product/burnt-cheese-cake/burnt-cheese-cake-with-topping.jpeg' 
                           alt='BURNT CHEESE CAKE'/>
       </Link>
 
-      <Link href={`/product/${encodeURIComponent('Custom Cake')}`}>
+      <Link href={`/product/custom-cake`}>
         <PostCardCategory src='/product/Custom Cake/Money Cake.jpeg' 
                           alt='CUSTOM CAKE'/>
       </Link>
 
-      <Link href={`/product/${encodeURIComponent('Fudgy Brownies')}`}>
-        <PostCardCategory src='/product/Fudgy Brownie/Fudgy Brown Mix 6 Toppings.jpeg' 
+      <Link href={`/product/fudgy-brownie`}>
+        <PostCardCategory src='/product/Fudgy Brownie/Bromix 6.jpeg' 
                           alt='FUDGY BROWNIE'/>
       </Link>
       
-      <Link href={`/product/${encodeURIComponent('Soft Cookies')}`}>
-        <PostCardCategory src='/product/Soft Cookies/Custom Giant Cookie.jpeg' 
+      <Link href={`/product/soft-cookies`}>
+        <PostCardCategory src='/product/Soft Cookies/Half Cake.jpeg' 
                           alt='SOFT COOKIES'/>
       </Link>
 
-      <Link href={`/product/${encodeURIComponent('Tiramisu Cake')}`}>
+      <Link href={`/product/tiramisu-cake`}>
         <PostCardCategory src='/product/Tiramisu Cake/Tiramisu Cake.jpeg' 
                           alt='TIRAMISU CAKE'/>
       </Link>
