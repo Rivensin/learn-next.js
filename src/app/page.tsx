@@ -3,8 +3,6 @@ import PostCardCategory from "@/components/fragments/PostCardCategory";
 import Link from "next/link";
 
 export default function Home() {
-  console.log("NEXTAUTH_SECRET:", process.env.NEXTAUTH_SECRET);
-  
   return (
     <div>
       <div className="relative">
