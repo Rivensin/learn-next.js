@@ -29,8 +29,6 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
         return NextResponse.redirect(new URL('/',req.url))
         }
       }
-
-      
     }
 
     return middleware(req,next) //Jika sudah login atau path tidak membutuhkan autentikasi, lanjutkan ke middleware utama.

@@ -46,6 +46,7 @@ function Navbar() {
           <Image 
               src='/icon-removebg-preview.png' 
               alt='dlooti-logo'
+              unoptimized
               className='w-36 h-24 -ml-2 4xl:ml-32'
               width={500}
               height={500}

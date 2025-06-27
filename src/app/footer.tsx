@@ -38,6 +38,7 @@ export default function Footer() {
           <Image 
             src='/icon-removebg-preview.png' 
             alt='dlooti-logo'
+            unoptimized
             className='-ml-4 w-36 h-32'
             width={150}
             height={100}

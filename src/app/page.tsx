@@ -5,14 +5,17 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      <Image 
-        src='/product/cover.jpeg'
-        className="h-96 w-full object-cover brightness-90"
-        alt='cover'
-        loading='lazy'
-        width={500}
-        height={500}>
-      </Image>
+      <div className="relative">
+        <Image 
+          src='/product/cover.jpeg'
+          className="h-96 w-full md:h-[400px] lg:h-[560px] object-cover brightness-90"
+          alt='cover'
+          loading='lazy'
+          quality={80}
+          width={4160}
+          height={2340}>
+        </Image>
+      </div>
 
       <div className="ml-4 mt-10 flex items-center">
         <span className='w-[50px] h-[3px] rounded my-2 block bg-[#5E50D2]/70'></span>
@@ -27,22 +30,22 @@ export default function Home() {
       </Link>
 
       <Link href={`/product/custom-cake`}>
-        <PostCardCategory src='/product/Custom Cake/Money Cake.jpeg' 
+        <PostCardCategory src='/product/custom-cake/money-cake.jpeg' 
                           alt='CUSTOM CAKE'/>
       </Link>
 
       <Link href={`/product/fudgy-brownie`}>
-        <PostCardCategory src='/product/Fudgy Brownie/Bromix 6.jpeg' 
+        <PostCardCategory src='/product/fudgy-brownie/bromix-6.jpeg' 
                           alt='FUDGY BROWNIE'/>
       </Link>
       
       <Link href={`/product/soft-cookies`}>
-        <PostCardCategory src='/product/Soft Cookies/Half Cake.jpeg' 
+        <PostCardCategory src='/product/soft-cookies/giant-cookie-character.jpeg' 
                           alt='SOFT COOKIES'/>
       </Link>
 
       <Link href={`/product/tiramisu-cake`}>
-        <PostCardCategory src='/product/Tiramisu Cake/Tiramisu Cake.jpeg' 
+        <PostCardCategory src='/product/tiramisu-cake/tiramisu-cake.jpeg' 
                           alt='TIRAMISU CAKE'/>
       </Link>
     

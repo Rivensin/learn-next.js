@@ -1,56 +1,29 @@
 export default function Loading(){
   return (
-    <div>
-      <div className="grid grid-cols-4 mt-5 my-5 place-items-center">
-        <div className="w-full max-w-sm bg-gray-400 border-none rounded-lg shadow-sm dark:bg-gray-400 my-5 h-96">
-          <a href="#">
-          </a>
-          <div className="px-5 pb-5">
-            <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white truncate"></h5>
-            </a>
-            <div className="flex items-center justify-between mt-3">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white"></span>
-            </div>
-          </div>          
-        </div>
-        <div className="w-full max-w-sm bg-gray-400 border-none rounded-lg shadow-sm dark:bg-gray-400 my-5 h-96">
-          <a href="#">
-          </a>
-          <div className="px-5 pb-5">
-            <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white truncate"></h5>
-            </a>
-            <div className="flex items-center justify-between mt-3">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white"></span>
-            </div>
-          </div>          
-        </div>
-        <div className="w-full max-w-sm bg-gray-400 border-none rounded-lg shadow-sm dark:bg-gray-400 my-5 h-96">
-          <a href="#">
-          </a>
-          <div className="px-5 pb-5">
-            <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white truncate"></h5>
-            </a>
-            <div className="flex items-center justify-between mt-3">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white"></span>
-            </div>
-          </div>          
-        </div>
-        <div className="w-full max-w-sm bg-gray-400 border-none rounded-lg shadow-sm dark:bg-gray-400 my-5 h-96">
-          <a href="#">
-          </a>
-          <div className="px-5 pb-5">
-            <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white truncate"></h5>
-            </a>
-            <div className="flex items-center justify-between mt-3">
-              <span className="text-3xl font-bold text-gray-900 dark:text-white"></span>
-            </div>
-          </div>          
-        </div>
+    <>
+      <div className="ml-4 mt-36 flex items-center">
+        <span className='w-[50px] h-[3px] rounded block bg-slate-400'></span>
+        <span className="ml-10 bg-slate-400 w-[117px] h-[28px]"></span>
       </div>
-    </div>
+
+      <div className="ml-4 mt-6 mb-11 flex justify-center items-center flex-wrap">
+        <div className={`p-4 mr-4 my-2 bg-slate-400`}></div>
+        <div className={`p-4 mr-4 my-2 bg-slate-400`}></div>
+        <div className={`p-4 mr-4 my-2 bg-slate-400`}></div>
+        <div className={`p-4 mr-4 my-2 bg-slate-400`}></div>
+        <div className={`p-4 mr-4 my-2 bg-slate-400`}></div>
+      </div>
+      
+      <div className="ml-3 bg-slate-400 w-[235px] h-[34px]"></div>
+
+      <div className="mt-10 gap-6 grid mx-5 max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> 
+        <div className='mb-6 bg-slate-400 w-[700px] h-[500px]'></div>
+        <div className='mb-6 bg-slate-400 w-[700px] h-[500px]'></div>
+        <div className='mb-6 bg-slate-400 w-[700px] h-[500px]'></div>
+        <div className='mb-6 bg-slate-400 w-[700px] h-[500px]'></div>
+        <div className='mb-6 bg-slate-400 w-[700px] h-[500px]'></div>
+        <div className='mb-6 bg-slate-400 w-[700px] h-[500px]'></div>
+      </div>
+    </>
   )
 }
