@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
   ssr: false,
   loading: () => (
-    <div className="w-[400px] h-[400px] xl:h-[450px] sm:w-[550px] md:w-[670px] lg:w-[900px] xl:w-[1100px] 2xl:w-[1400px] shadow-lg overflow-hidden mx-auto lg:ml-24 lg:mx-0 bg-slate-400 animate-pulse duration-1000 ease-in"></div>
+    <div className="w-[400px] h-[400px] xl:h-[450px] sm:w-[550px] md:w-[670px] lg:w-[900px] xl:w-[1100px] 2xl:w-[1400px] shadow-lg overflow-hidden mx-auto lg:mx-0 lg:ml-24 bg-slate-300 animate-pulse"></div>
   )
 })
 

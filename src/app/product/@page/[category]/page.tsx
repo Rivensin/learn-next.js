@@ -57,7 +57,7 @@ function ProductPage(props: any) {
       
       <span className="ml-5 text-[#5E50D2] text-2xl font-semibold">{formatedCategory}</span>
 
-      <div className="mt-10 gap-6 grid mx-5 max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"> 
+      <div className="mt-10 gap-6 grid mx-5 max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">   
         {filteredProduct?.length > 0 && (
           filteredProduct?.map((product: any) => (
             <div key ={product.id} 
@@ -73,7 +73,7 @@ function ProductPage(props: any) {
                   />
                 </Link>
               </div>   
-              <div className="pb-10 pt-2 h-20text-md tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] transition-all duration-700">
+              <div className="pb-10 pt-2 h-20 text-md tracking-tight text-bold text-center border border-[#f84d78] text-[#f84d78] hover:text-white hover:bg-[#f84d78] transition-all duration-700">
                 <span>{product.name}</span>
               </div>         
             </div>
