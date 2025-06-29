@@ -36,10 +36,11 @@ export default function Footer() {
       <div className="bg-[#a492fd] pb-10 lg:flex lg:items-center lg:justify-evenly">
         <div className="flex flex-col flex-wrap justify-center pl-4">
           <Image 
-            src='/icon-removebg-preview.png' 
+            src='/icons/icon-removebg-preview.png' 
             alt='dlooti-logo'
-            unoptimized
-            className='-ml-4 w-36 h-32'
+            quality={75}
+            priority
+            className='-ml-4 w-40 h-36'
             width={150}
             height={100}
           />

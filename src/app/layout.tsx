@@ -34,14 +34,14 @@ export const metadata: Metadata = {
   description: 'Dlooti Home Bakery for Everyone',
   authors: [{name:'riven', url:process.env.NEXT_PUBLIC_API_URL}],
   icons: {
-    icon: '/icon.png',
+    icon: 'icons/icon.png',
   },
   openGraph: {
     title: 'Home',
     description: 'Aplikasi untuk belajar nextjs',
     images: [
       {
-        url: '/icon.png',
+        url: 'icons/icon.png',
         width: 800,
         height: 600,
       }

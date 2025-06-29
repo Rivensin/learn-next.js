@@ -3,10 +3,11 @@ import Image from "next/image"
 function About() {
   return (
     <>
+      <title>About | Dlooti</title>
       <div className="ml-4 sm:ml-16 md:ml-16 lg:ml-28">
         <div className="mt-36 flex items-center">
           <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-          <span className="ml-10 text-[#5E50D2] text-lg">About</span>
+          <span className="ml-10 text-[#5E50D2] text-lg font-semibold">About</span>
         </div>
 
         <div className="text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
@@ -19,7 +20,7 @@ function About() {
 
         <div className="mt-14 flex items-center">
           <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-          <span className="ml-10 text-[#5E50D2] text-lg">Our Philosophy</span>
+          <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Philosophy</span>
         </div>
 
         <div className="text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
@@ -37,24 +38,30 @@ function About() {
               alt="cover"
               width={682}
               height={510}
+              unoptimized
+              loading="lazy"
               className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
             />
          </div>
          <div className="mb-2 mr-2">
             <Image
-              src="/product/Custom Cake/Half Cake.jpeg"
+              src="/product/custom-cake/half-cake.jpeg"
               alt="cover"
               width={682}
               height={510}
+              unoptimized
+              loading="lazy"
               className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
             />
          </div>
          <div className="mb-2 mr-2">
             <Image
-              src="/product/Soft Cookies/Giant Cookie - Character.jpeg"
+              src="/product/soft-cookies/giant-cookie-character.jpeg"
               alt="cover"
               width={682}
               height={510}
+              unoptimized
+              loading="lazy"
               className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
             />
          </div>

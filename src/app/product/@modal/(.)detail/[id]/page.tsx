@@ -27,8 +27,9 @@ export default function DetailProductPage(props: any){
   return (
     <Modal>
       <img src={product.data?.image}
-             className="w-full object-cover aspect-square col-span-2 h-[500px]"
-             alt={product.data?.name}>
+           className="w-full object-cover aspect-square col-span-2 h-[500px]"
+           alt={product.data?.name}
+      >
       </img>
       <div className="bg-white mt-6">
         <h3>{product.data?.name}</h3>

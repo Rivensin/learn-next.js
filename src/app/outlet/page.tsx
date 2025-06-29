@@ -12,9 +12,10 @@ const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
 function Outlet() {
   return (
     <>
+      <title>Outlet | Dlooti</title>
       <div className="ml-4 lg:ml-28 mt-36 flex items-center">
         <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg">Our Outlet</span>
+        <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Outlet</span>
       </div>
       
       <div className="text-3xl ml-4 lg:ml-28 mt-10">

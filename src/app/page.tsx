@@ -10,8 +10,8 @@ export default function Home() {
           src='/product/cover.jpeg'
           className="h-96 w-full md:h-[400px] lg:h-[560px] object-cover brightness-90"
           alt='cover'
-          loading='lazy'
-          quality={80}
+          priority
+          quality={60}
           width={4160}
           height={2340}>
         </Image>
@@ -19,7 +19,7 @@ export default function Home() {
 
       <div className="ml-4 mt-10 flex items-center">
         <span className='w-[50px] h-[3px] rounded my-2 block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg">Our Products</span>
+        <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Products</span>
       </div>
 
       <p className="ml-4 mt-10 text-3xl">Indulge yourself with our premium bread and pastries.</p>
