@@ -1,4 +1,4 @@
-export default function Loading(){
+export default function ProductLoading(){
   return (
     <>
       <div className="ml-4 mt-36 flex items-center">

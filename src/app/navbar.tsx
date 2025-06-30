@@ -58,19 +58,19 @@ function Navbar() {
       <div className={`${hamburgerMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4 lg:-translate-y-0 lg:pointer-events-auto'} absolute top-full left-0 bg-white/50 backdrop-blur-sm z-50 duration-700 lg:opacity-100 lg:bg-[#f7f7f9] lg:relative lg:top-auto lg:mx-14 lg:flex lg:items-center`}>
         <ul className='flex flex-col ml-6 lg:flex-row lg:text-md xl:text-md 4xl:text-xl mb-1 lg:mb-0'>
           <Link href='/'>
-            <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Home</li>
+            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Home</li>
           </Link>
           <Link href={`/product/burnt-cheese-cake`}>
-            <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/product' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Product</li>
+            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/product' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Product</li>
           </Link>
           <Link href='/about'>
-            <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/about' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>About</li>
+            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/about' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>About</li>
           </Link>
           <Link href='/outlet'>
-            <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Outlet</li>
+            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Outlet</li>
           </Link>
           <Link href='/about/profile'>
-            <li className={`lg:mr-14 mr-4 hover:text-purple-700 duration-500 ${pathname === '/about/profile' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Review</li>
+            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/about/profile' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Review</li>
           </Link>
         </ul>
       </div>
