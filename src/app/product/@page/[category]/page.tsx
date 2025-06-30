@@ -66,8 +66,7 @@ function ProductPage(props: any) {
               <div key ={product.id} 
                   className='mb-6 shadow-lg'>
                 <div className="overflow-hidden group">
-                  <Link href={`/product/detail/${product.id}`}
-                        onMouseEnter={() => router.prefetch(`/product/detail/${product.id}`)}>
+                  <Link href={`/product/detail/${product.id}`}>
                     <Image src={product.image}
                           className="object-cover h-60 sm:h-72 md:h-80 lg:h-96 w-full group-hover:scale-110 transition-all duration-700"  
                           alt={product.name}
