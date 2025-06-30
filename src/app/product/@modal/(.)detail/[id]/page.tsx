@@ -2,7 +2,6 @@
 import dynamic from "next/dynamic"
 import useSWR from "swr"
 import { useParams } from "next/navigation"
-import { Suspense } from "react"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -20,23 +19,13 @@ export default function DetailProductPage(props: any){
          <div className="h-6 w-6 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
         <span className="text-3xl text-black">Loading...</span>
       </div>
-  }
-)
+  })
 
-    if(isLoading || !product){
-      return (
-        <Modal>
-        <div className="w-full object-cover aspect-square col-span-2 h-[500px] bg-slate-300 animate-pulse"></div>
-        <div className="mt-6 bg-slate-300 h-8 w-1/2 animate-pulse"></div>
-        </Modal>
-      )
-    }
-
-    return (
+  return (
     <Modal>
       <img src={product.data?.image}
-          className="w-full object-cover aspect-square col-span-2 h-[500px]"
-          alt={product.data?.name}
+           className="w-full object-cover aspect-square col-span-2 h-[500px]"
+           alt={product.data?.name}
       >
       </img>
       <div className="bg-white mt-6">
