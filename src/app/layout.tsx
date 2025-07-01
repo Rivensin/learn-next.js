@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     icon: 'icons/icon.png',
   },
   openGraph: {
-    title: 'Home',
-    description: 'Aplikasi untuk belajar nextjs',
+    title: 'Dlooti',
+    description: 'Dlooti Home Bakery for Everyone',
     images: [
       {
         url: 'icons/icon.png',
