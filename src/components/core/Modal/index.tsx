@@ -17,7 +17,7 @@ export default function Modal({children} : {children:React.ReactNode}){
     <div ref={overlay}
         className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/60"
         onClick={close}>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white w-full h-auto max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white w-full h-auto max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
         <div onClick={() => router.back()} 
             className="cursor-pointer absolute -top-3 -right-4 rounded-full bg-gray-300 p-5 w-1 h-1 flex justify-center items-center hover:bg-gray-500 duration-300">
           X
