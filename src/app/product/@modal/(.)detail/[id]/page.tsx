@@ -23,7 +23,7 @@ export default function DetailProductPage(props: any){
       // </div>
       
       <div className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/60">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white w-96 ">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white w-full h-auto max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
           <div className="absolute -top-3 -right-4 rounded-full bg-slate-300 p-5 w-1 h-1 flex justify-center items-center duration-300 animate-pulse">
           </div>
           <div className="border-4 border-[#f84d78] p-6">
