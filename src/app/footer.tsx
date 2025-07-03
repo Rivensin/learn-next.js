@@ -1,13 +1,40 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import { cardVariant, useScrollAnimation } from '@/components/fragments/motion'
+import { useRef } from "react";
 
 export default function Footer() {
+  const ref = useRef(null)
+  const isInView = useInView(ref,{margin:'-100px', once:true})
+  const footer1 = useScrollAnimation('50px',false)
+  const footer2 = useScrollAnimation('50px',false)
+
   return (
     <>
-      <div className="flex flex-col items-center bg-[#f84d78]/60 p-10 mt-10 text-center font-bold ">
-        <span className="text-white text-lg">Order Dlooti by Instagram DM or WhatsApp!</span>
+      <motion.div
+        ref={ref}
+        variants={cardVariant} 
+        initial='hiddenBot'
+        animate={isInView ? 'visibleY' : ''}
+        className="flex flex-col items-center bg-[#f84d78]/60 p-10 mt-10 text-center font-bold ">
+          <motion.span
+            ref={ref} 
+            variants={cardVariant}
+            initial='hiddenBot'
+            animate={isInView ? 'visibleY' : ''} 
+            className="text-white text-lg">
+            Order Dlooti by Instagram DM or WhatsApp!
+          </motion.span>
+
         <Link href='https://wa.me/+6281374956263' target="_blank">
-          <div className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
+          <motion.div
+            ref={ref}
+            variants={cardVariant} 
+            initial='hiddenRight'
+            animate={isInView ? 'visibleX' : ''}
+            className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
             <Image 
                 src='/icons/whatsapp.png' 
                 alt='instagram'
@@ -16,11 +43,16 @@ export default function Footer() {
                 height={500}
           />
             <span className="ml-2 text-sm">Order by WhatsApp!</span>
-          </div>
+          </motion.div>
         </Link>
 
         <Link href='https://instagram.com/dlooti_' target="_blank">
-          <div className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
+          <motion.div 
+            ref={ref}
+            variants={cardVariant} 
+            initial='hiddenLeft'
+            animate={isInView ? 'visibleX' : ''}
+            className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
             <Image 
                 src='/icons/instagram.png' 
                 alt='instagram'
@@ -29,12 +61,22 @@ export default function Footer() {
                 height={500}
             />
             <span className="ml-2 text-sm">Order by Instagram!</span>
-          </div>
+          </motion.div>
         </Link>
-      </div>
+      </motion.div>
 
-      <div className="bg-[#a492fd] pb-10 lg:flex lg:items-center lg:justify-evenly">
-        <div className="flex flex-col flex-wrap justify-center pl-4">
+      <motion.div
+        ref={footer2.ref}
+        variants={cardVariant} 
+        initial='hiddenBot'
+        animate={footer2.isInView ? 'visibleY' : ''} 
+        className="bg-[#a492fd] pb-10 lg:flex lg:items-center lg:justify-evenly">
+        <motion.div
+          ref={footer2.ref}
+          variants={cardVariant} 
+          initial='hiddenRight'
+          animate={footer2.isInView ? 'visibleX' : ''} 
+          className="flex flex-col flex-wrap justify-center pl-4">
           <Image 
             src='/icons/icon-removebg-preview.png' 
             alt='dlooti-logo'
@@ -47,9 +89,14 @@ export default function Footer() {
           <div className="text-white text-md lg:max-w-md">
             DLOOTI is a new Japanese–inspired boutique bakery and pastry shop that features exceptionally handcrafted bread, pastries, cakes, and cookies.
           </div>
-        </div>
+        </motion.div>
         
-        <div className="mt-4 pb-4 pl-4 flex">
+        <motion.div
+          ref={footer1.ref}
+          variants={cardVariant} 
+          initial='hiddenBot'
+          animate={footer1.isInView ? 'visibleY' : ''}
+          className="mt-4 pb-4 pl-4 flex">
           <div className="mr-24">
             <div className="text-[#f84d78] text-xl font-semibold mt-4">About</div>
             <div className="flex flex-col mt-2 text-white">
@@ -65,7 +112,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="">
+          <motion.div
+            ref={footer2.ref}
+            variants={cardVariant} 
+            initial='hiddenBot'
+            animate={footer2.isInView ? 'visibleY' : ''}>
             <div className="text-[#f84d78] text-xl font-semibold mt-4">Support</div>
             <div className="flex flex-col mt-2 text-white">
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
@@ -75,9 +126,9 @@ export default function Footer() {
                 <Link href='#' className="pointer-events-none">Terms</Link>
               </div>
             </div>
-            </div>
-        </div>
-      </div>
+            </motion.div>
+        </motion.div>
+      </motion.div>
     </>
   );
 }

@@ -1,14 +1,21 @@
+'use client'
 import Image from "next/image"
+import { motion } from "framer-motion"
+import { cardVariant } from "@/components/fragments/motion"
 
 function About() {
   return (
     <>
       <title>About | Dlooti</title>
       <div className="ml-4 sm:ml-16 md:ml-16 lg:ml-28">
-        <div className="mt-36 flex items-center">
+        <motion.div
+          variants={cardVariant}
+          initial='hiddenRight'
+          animate='visibleX' 
+          className="mt-36 flex items-center">
           <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
           <span className="ml-10 text-[#5E50D2] text-lg font-semibold">About</span>
-        </div>
+        </motion.div>
 
         <div className="text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
             Dlooti is a new Japanese-inspired boutique bakery and pastry shop

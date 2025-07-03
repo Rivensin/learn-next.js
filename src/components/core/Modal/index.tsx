@@ -22,7 +22,7 @@ export default function Modal({children} : {children:React.ReactNode}){
             className="cursor-pointer absolute -top-3 -right-4 rounded-full bg-gray-300 p-5 w-1 h-1 flex justify-center items-center hover:bg-gray-500 duration-300">
           X
         </div>
-        <div className="border-4 border-[#f84d78] p-4">
+        <div className=" relative border-2 border-[#f84d78] p-4">
           {children}
         </div>
       </div>
