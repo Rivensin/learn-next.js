@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children,} : Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${roboto.variable}`} >
+      <body className={`${poppins.className} ${roboto.variable} overflow-x-hidden`} >
         <SessionProviderWrapper>
           <Navbar /> 
           {children}

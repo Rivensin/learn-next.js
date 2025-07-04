@@ -1,39 +1,40 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { cardVariant, useScrollAnimation } from '@/components/fragments/motion'
-import { useRef } from "react";
 
 export default function Footer() {
-  const ref = useRef(null)
-  const isInView = useInView(ref,{margin:'-100px', once:true})
-  const footer1 = useScrollAnimation('50px',false)
-  const footer2 = useScrollAnimation('50px',false)
+  const pinkBg = useScrollAnimation('-80px',false)
+  const pinkBgContent = useScrollAnimation('-100px',false)
+  const pinkBgContent2 = useScrollAnimation('-80px',false)
+  const purpleBg = useScrollAnimation('-80px',false)
+  const purpleBgContent = useScrollAnimation('-100px',false)
+  const purpleBgContent2 = useScrollAnimation('-100px',false)
 
   return (
     <>
       <motion.div
-        ref={ref}
+        ref={pinkBg.ref}
         variants={cardVariant} 
         initial='hiddenBot'
-        animate={isInView ? 'visibleY' : ''}
+        animate={pinkBg.isInView ? 'visibleY' : ''}
         className="flex flex-col items-center bg-[#f84d78]/60 p-10 mt-10 text-center font-bold ">
           <motion.span
-            ref={ref} 
+            ref={pinkBgContent.ref} 
             variants={cardVariant}
             initial='hiddenBot'
-            animate={isInView ? 'visibleY' : ''} 
+            animate={pinkBgContent.isInView ? 'visibleY' : ''} 
             className="text-white text-lg">
             Order Dlooti by Instagram DM or WhatsApp!
           </motion.span>
 
         <Link href='https://wa.me/+6281374956263' target="_blank">
           <motion.div
-            ref={ref}
+            ref={pinkBgContent2.ref}
             variants={cardVariant} 
             initial='hiddenRight'
-            animate={isInView ? 'visibleX' : ''}
+            animate={pinkBgContent2.isInView ? 'visibleX' : ''}
             className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
             <Image 
                 src='/icons/whatsapp.png' 
@@ -48,10 +49,10 @@ export default function Footer() {
 
         <Link href='https://instagram.com/dlooti_' target="_blank">
           <motion.div 
-            ref={ref}
+            ref={pinkBgContent2.ref}
             variants={cardVariant} 
             initial='hiddenLeft'
-            animate={isInView ? 'visibleX' : ''}
+            animate={pinkBgContent2.isInView ? 'visibleX' : ''}
             className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
             <Image 
                 src='/icons/instagram.png' 
@@ -66,16 +67,16 @@ export default function Footer() {
       </motion.div>
 
       <motion.div
-        ref={footer2.ref}
+        ref={purpleBg.ref}
         variants={cardVariant} 
         initial='hiddenBot'
-        animate={footer2.isInView ? 'visibleY' : ''} 
+        animate={purpleBg.isInView ? 'visibleY' : ''} 
         className="bg-[#a492fd] pb-10 lg:flex lg:items-center lg:justify-evenly">
         <motion.div
-          ref={footer2.ref}
+          ref={purpleBgContent.ref}
           variants={cardVariant} 
-          initial='hiddenRight'
-          animate={footer2.isInView ? 'visibleX' : ''} 
+          initial='hiddenBot'
+          animate={purpleBgContent.isInView ? 'visibleY' : ''} 
           className="flex flex-col flex-wrap justify-center pl-4">
           <Image 
             src='/icons/icon-removebg-preview.png' 
@@ -92,10 +93,10 @@ export default function Footer() {
         </motion.div>
         
         <motion.div
-          ref={footer1.ref}
+          ref={purpleBgContent2.ref}
           variants={cardVariant} 
           initial='hiddenBot'
-          animate={footer1.isInView ? 'visibleY' : ''}
+          animate={purpleBgContent2.isInView ? 'visibleY' : ''}
           className="mt-4 pb-4 pl-4 flex">
           <div className="mr-24">
             <div className="text-[#f84d78] text-xl font-semibold mt-4">About</div>
@@ -113,10 +114,10 @@ export default function Footer() {
           </div>
 
           <motion.div
-            ref={footer2.ref}
+            ref={purpleBgContent2.ref}
             variants={cardVariant} 
             initial='hiddenBot'
-            animate={footer2.isInView ? 'visibleY' : ''}>
+            animate={purpleBgContent2.isInView ? 'visibleY' : ''}>
             <div className="text-[#f84d78] text-xl font-semibold mt-4">Support</div>
             <div className="flex flex-col mt-2 text-white">
               <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">

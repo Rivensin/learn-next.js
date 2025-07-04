@@ -49,8 +49,8 @@ export default function Home() {
       <motion.p 
         ref={ref}
         variants={cardVariant}
-        initial='hiddenRight'
-        animate={isInView ? 'visibleX' : ''}
+        initial='hiddenBot'
+        animate={isInView ? 'visibleY' : ''}
         className="ml-4 mt-10 text-3xl">
         Indulge yourself with our premium bread and pastries.
       </motion.p>

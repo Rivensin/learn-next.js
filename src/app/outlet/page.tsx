@@ -1,5 +1,8 @@
 'use client'
 import dynamic from "next/dynamic"
+import { motion } from "framer-motion"
+import { cardVariant, useScrollAnimation } from "@/components/fragments/motion"
+import Image from "next/image"
 
 const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
   ssr: false,
@@ -8,23 +11,66 @@ const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
   )
 })
 
-
 function Outlet() {
-  return (
+
+  const outletTitle = useScrollAnimation('-100px',false)
+  const outletMap = useScrollAnimation('-100px',false)
+  const location = useScrollAnimation('-100px',false)
+
+  return (  
     <>
       <title>Outlet | Dlooti</title>
-      <div className="ml-4 lg:ml-28 mt-36 flex items-center">
+      <motion.div
+        ref={outletTitle.ref}
+        variants={cardVariant}
+        initial='hiddenRight'
+        animate={outletTitle.isInView ? 'visibleX' : ''} 
+        className="ml-4 lg:ml-28 mt-36 flex items-center">
         <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
         <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Outlet</span>
-      </div>
+      </motion.div>
       
-      <div className="text-3xl ml-4 lg:ml-28 mt-10">
+      <motion.div
+        ref={outletTitle.ref}
+        variants={cardVariant}
+        initial='hiddenRight'
+        animate={outletTitle.isInView ? 'visibleX' : ''} 
+        className="text-3xl ml-4 lg:ml-28 mt-10">
         Our Location.
-      </div>
+      </motion.div>
       
-      <div className="mt-10 ml-4 mb-16">
+      <motion.div
+        ref={outletMap.ref}
+        variants={cardVariant}
+        initial='hiddenBot'
+        animate={outletMap.isInView ? 'visibleY' : ''} 
+        className="mt-10 ml-4 lg:ml-28 mb-16">
         <StoreMap />
-      </div>
+      </motion.div>
+
+      <motion.div
+        ref={location.ref}
+        variants={cardVariant}
+        initial='hiddenBot'
+        animate={location.isInView ? 'visibleY' : ''}  
+        className="ml-4 lg:ml-28 lg:flex justify-center items-center border-2 border-[#f84d78] lg:p-2 max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:shadow-lg overflow-hidden">
+        <div className="lg:mr-4 lg:w-1/2">
+        <Image
+          src='/cover/cover.jpg'
+          alt='cover'
+          className="w-full h-[265px] object-cover"
+          width={397}
+          height={265}
+          />  
+        </div>
+        <div className="mt-4 ml-2 lg:w-1/2">
+          <div className="font-semibold mb-3">Pekanbaru</div>
+          <div className="mb-3">Jl Lily 2 No 49N</div>
+          <div className="mb-3">08:00 - 20:00</div>
+          <div className="mb-3">Hotline : 0813-7495-6263</div>
+          <div className="mb-3">Takeaway ⋅ Delivery</div>
+        </div>
+      </motion.div>
       
     </>
   )
