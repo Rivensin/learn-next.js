@@ -17,7 +17,7 @@ export default function Home() {
   const isInView = useInView(ref,{margin:'-100px', once:true})
   
   return (
-    <div>
+    <div className="overflow-hidden">
       <motion.div
         ref={ref}
         variants={cardVariant}
@@ -59,7 +59,7 @@ export default function Home() {
         ref={bccView.ref}
         variants={cardVariant}
         initial='hiddenRight'
-        animate={bccView.isInView ? 'visibleX' : ''}>
+        animate={bccView.isInView ? 'visibleX' : ''}>   
         <Link href={`/product/burnt-cheese-cake`}>
           <PostCardCategory src='/product/burnt-cheese-cake/burnt-cheese-cake-with-topping.jpeg' 
                             alt='BURNT CHEESE CAKE'/>

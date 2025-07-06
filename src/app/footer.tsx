@@ -8,12 +8,12 @@ export default function Footer() {
   const pinkBg = useScrollAnimation('-80px',false)
   const pinkBgContent = useScrollAnimation('-100px',false)
   const pinkBgContent2 = useScrollAnimation('-80px',false)
-  const purpleBg = useScrollAnimation('-80px',false)
+  const purpleBg = useScrollAnimation('-70px',false)
   const purpleBgContent = useScrollAnimation('-100px',false)
   const purpleBgContent2 = useScrollAnimation('-100px',false)
 
   return (
-    <>
+    <div className="overflow-hidden">
       <motion.div
         ref={pinkBg.ref}
         variants={cardVariant} 
@@ -130,6 +130,6 @@ export default function Footer() {
             </motion.div>
         </motion.div>
       </motion.div>
-    </>
+    </div>
   );
 }

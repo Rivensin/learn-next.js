@@ -25,7 +25,7 @@ const redIcon = new L.Icon({
 
 export default function StoreMap() {
   return (
-    <div className="w-full max-w-xs h-[400px] xl:h-[450px] 2xl:h-[550px] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-7xl shadow-lg overflow-hidden">
+    <div className="[width:clamp(320px,80vw,590px)] sm:[width:clamp(576px,80vw,718px)] md:[width:clamp(691px,80vw,974px)] lg:w-[95%] lg:min-w-[850px] lg:max-w-[1100px] xl:w-[95%] xl:min-w-[1100px] xl:max-w-[1500px] h-[400px] xl:h-[450px] 2xl:h-[550px] shadow-lg overflow-hidden transition-all duration-700">
       <MapContainer
         center={[0.5266058859966887, 101.42878570224349]}
         zoom={16}

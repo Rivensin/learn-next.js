@@ -47,7 +47,7 @@ function Navbar() {
             src='/icons/icon-removebg-preview.png' 
             alt='dlooti-logo'
             quality={75}
-            className='w-36 h-24 -ml-2 4xl:ml-32'
+            className='w-36 h-24 ml-2 4xl:ml-32'
             width={150}
             height={100}
             priority

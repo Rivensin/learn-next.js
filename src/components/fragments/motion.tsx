@@ -31,7 +31,7 @@ export const cardVariant = {
       opacity:1,
       transition:{
         ease: easeOut,
-        duration: 0.7
+        duration: 0.8
       }
     }  
    }
