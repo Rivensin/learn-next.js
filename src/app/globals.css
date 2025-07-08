@@ -44,3 +44,46 @@ body {
   z-index: 1 !important;
 }
 
+.hamburger-line {
+  @apply h-[2px] my-2 block bg-black opacity-50 rounded;
+}
+
+.nav-menu{
+  @apply lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 cursor-pointer;
+}
+
+.navbar-icon{
+  @apply w-9 h-9 mr-4 group-hover:-translate-y-2 shadow-lg duration-300 ease-out;
+}
+
+.footer-icon{
+  @apply flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer;
+}
+
+.footer-navbar{
+  @apply mt-2 duration-300 ease-out;
+}
+
+.product-list{
+  @apply p-4 mr-4 my-2 border border-gray-200 shadow-lg transition-all duration-700 font-semibold cursor-pointer;
+}
+
+.page-title{
+  @apply ml-10 text-purpleLn text-lg font-semibold;
+}
+
+.page-title-line{
+  @apply w-[50px] h-[3px] rounded block bg-purpleLn/70;
+}
+
+.about-heading{
+  @apply text-3xl sm:text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl;
+}
+
+.about-paragraph{
+  @apply mt-10 md:text-lg max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl;
+}
+
+.about-picture{
+  @apply w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover;
+}

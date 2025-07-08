@@ -14,6 +14,13 @@ module.exports = {
         roboto : 'var(--font-roboto)',
         poppins : 'var(--font-poppins)',
       },
+      colors: {
+        pinkBg : '#f84d78',
+        pinkTxt: '#f66186',
+        purpleBg : '#a492fd',
+        purpleLn : '#5E50D2', 
+        whiteNav : '#f7f7f9',
+      }
     },
   },
   plugins: [],

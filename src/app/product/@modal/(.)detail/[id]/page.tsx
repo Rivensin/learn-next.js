@@ -22,7 +22,7 @@ export default function DetailProductPage(props: any){
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white w-full h-auto max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">
           <div className="absolute -top-3 -right-4 rounded-full bg-slate-300 p-5 w-1 h-1 flex justify-center items-center duration-300 animate-pulse">
           </div>
-          <div className="border-4 border-[#f84d78] p-6">
+          <div className="border-4 border-pinkBg p-6">
             <div className="w-full h-[500px] bg-slate-300 animate-pulse duration-700"></div>
             <div className="mt-6">
               <h3 className="bg-slate-300 animate-pulse w-[233px] h-[24px]"></h3>
@@ -45,9 +45,8 @@ export default function DetailProductPage(props: any){
         width={500}
         height={500}>
       </Image>
-      <div className="mt-6">
+      <div className="mt-6 -mb-3 md:mb-0">
         <h3>{product.data?.name}</h3>
-        <p>{product.data?.desc}</p>
       </div>
     </Modal>
   )

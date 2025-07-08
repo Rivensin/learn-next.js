@@ -19,7 +19,7 @@ export default function Footer() {
         variants={cardVariant} 
         initial='hiddenBot'
         animate={pinkBg.isInView ? 'visibleY' : ''}
-        className="flex flex-col items-center bg-[#f84d78]/60 p-10 mt-10 text-center font-bold ">
+        className="flex flex-col items-center bg-pinkBg/70 p-10 mt-10 text-center font-bold ">
           <motion.span
             ref={pinkBgContent.ref} 
             variants={cardVariant}
@@ -35,7 +35,7 @@ export default function Footer() {
             variants={cardVariant} 
             initial='hiddenRight'
             animate={pinkBgContent2.isInView ? 'visibleX' : ''}
-            className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
+            className="footer-icon">
             <Image 
                 src='/icons/whatsapp.png' 
                 alt='instagram'
@@ -53,7 +53,7 @@ export default function Footer() {
             variants={cardVariant} 
             initial='hiddenLeft'
             animate={pinkBgContent2.isInView ? 'visibleX' : ''}
-            className="flex justify-center items-center mt-4 p-8 bg-black text-white w-36 h-16 hover:shadow-2xl hover:-translate-y-1 rounded cursor-pointer">
+            className="footer-icon">
             <Image 
                 src='/icons/instagram.png' 
                 alt='instagram'
@@ -71,7 +71,7 @@ export default function Footer() {
         variants={cardVariant} 
         initial='hiddenBot'
         animate={purpleBg.isInView ? 'visibleY' : ''} 
-        className="bg-[#a492fd] pb-10 lg:flex lg:items-center lg:justify-evenly">
+        className="bg-purpleBg pb-10 lg:flex lg:items-center lg:justify-evenly">
         <motion.div
           ref={purpleBgContent.ref}
           variants={cardVariant} 
@@ -88,7 +88,7 @@ export default function Footer() {
             height={100}
           />
           <div className="text-white text-md lg:max-w-md">
-            DLOOTI is a new Japanese–inspired boutique bakery and pastry shop that features exceptionally handcrafted bread, pastries, cakes, and cookies.
+            DLOOTI is a boutique bakery — all handcrafted with care and attention to detail. Every treat is made to deliver comfort and unforgettable flavor in every bite.
           </div>
         </motion.div>
         
@@ -99,15 +99,15 @@ export default function Footer() {
           animate={purpleBgContent2.isInView ? 'visibleY' : ''}
           className="mt-4 pb-4 pl-4 flex">
           <div className="mr-24">
-            <div className="text-[#f84d78] text-xl font-semibold mt-4">About</div>
+            <div className="text-pinkBg text-xl font-semibold mt-4">About</div>
             <div className="flex flex-col mt-2 text-white">
-              <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
+              <div className="hover:text-pinkTxt text-md footer-navbar">
                 <Link href='/about'>About Us</Link>
               </div>
-              <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
+              <div className="hover:text-pinkTxt text-md footer-navbar">
                 <Link href='/outlet'>Location</Link>
               </div>
-              <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
+              <div className="hover:text-pinkTxt text-md footer-navbar">
                 <Link href='/review'>Review</Link>
               </div>
             </div>
@@ -118,12 +118,12 @@ export default function Footer() {
             variants={cardVariant} 
             initial='hiddenBot'
             animate={purpleBgContent2.isInView ? 'visibleY' : ''}>
-            <div className="text-[#f84d78] text-xl font-semibold mt-4">Support</div>
+            <div className="text-pinkBg text-xl font-semibold mt-4">Support</div>
             <div className="flex flex-col mt-2 text-white">
-              <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
+              <div className="hover:text-pinkTxt text-md footer-navbar">
                 <Link href='#' className="pointer-events-none">Privacy Policy</Link>
               </div>
-              <div className="hover:text-[#f66186] text-md mt-2 duration-300 ease-out">
+              <div className="hover:text-pinkTxt text-md footer-navbar">
                 <Link href='#' className="pointer-events-none">Terms</Link>
               </div>
             </div>

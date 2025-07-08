@@ -3,6 +3,7 @@ import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import { cardVariant, useScrollAnimation } from "@/components/fragments/motion"
 import Image from "next/image"
+import Link from "next/link"
 
 const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
   ssr: false,
@@ -26,8 +27,8 @@ function Outlet() {
         initial='hiddenRight'
         animate={outletTitle.isInView ? 'visibleX' : ''} 
         className="ml-4 mt-36 flex items-center">
-        <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Outlet</span>
+        <span className='page-title-line'></span>
+        <span className="page-title">Our Outlet</span>
       </motion.div>
       
       <motion.div
@@ -53,7 +54,7 @@ function Outlet() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={location.isInView ? 'visibleY' : ''}  
-        className="ml-4 lg:flex justify-center items-center border-2 border-[#f84d78] lg:p-2 [width:clamp(320px,80vw,590px)] sm:[width:clamp(576px,80vw,718px)] md:[width:clamp(691px,80vw,850px)] lg:w-[95%] lg:min-w-[850px] lg:max-w-[1100px] xl:w-[95%] xl:min-w-[1100px] xl:max-w-[1500px] shadow-lg overflow-hidden duration-700 transition-all">
+        className="ml-4 lg:flex justify-center items-center border-2 border-pinkBg lg:p-2 [width:clamp(320px,80vw,590px)] sm:[width:clamp(576px,80vw,718px)] md:[width:clamp(691px,80vw,850px)] lg:w-[95%] lg:min-w-[850px] lg:max-w-[1100px] xl:w-[95%] xl:min-w-[1100px] xl:max-w-[1500px] shadow-lg overflow-hidden duration-700 transition-all">
         <div className="lg:mr-4 lg:w-1/2">
         <Image
           src='/cover/cover.jpg'
@@ -70,6 +71,14 @@ function Outlet() {
           <div className="mb-3">08:00 - 20:00</div>
           <div className="mb-3">Contact : 0813-7495-6263</div>
           <div className="mb-3">Takeaway ⋅ Delivery</div>
+          <div className="-ml-2 lg:w-32 hover:opacity-80 duration-500 transition-all">
+            <Link href="https://www.google.com/maps/dir//D'looti,+No+49N,+Jl.+Lili+II,+Kedungsari,+Sukajadi,+Pekanbaru+City,+Riau+28123/@0.5264204,101.4288326,18z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31d5ab9b94295e2d:0x7167949350a3fad2!2m2!1d101.4287786!2d0.5265375? entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"
+            target='_blank'>
+            <div className=' bg-purple-500 font-semibold py-1 mt-6 text-white text-center'>
+              &#x2934; Direction
+            </div>
+            </Link>
+          </div>
         </div>
       </motion.div>
       

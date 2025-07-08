@@ -19,8 +19,8 @@ function About() {
         initial='hiddenRight'
         animate={aboutTitle.isInView ? 'visibleX' : ''} 
         className="mt-36 flex items-center">
-        <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg font-semibold">About</span>
+        <span className='page-title-line'></span>
+        <span className="page-title">About</span>
       </motion.div>
 
       <motion.div
@@ -28,8 +28,8 @@ function About() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={aboutContent.isInView ? 'visibleY' : ''} 
-        className="text-3xl sm:text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
-          Dlooti is a new Japanese-inspired boutique bakery and pastry shop
+        className="about-heading">
+          Dlooti is a new fresh boutique bakery and pastry shop
       </motion.div>
 
       <motion.div
@@ -37,8 +37,8 @@ function About() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={aboutContent.isInView ? 'visibleY' : ''}  
-        className="text-md md:text-lg mt-10 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl">
-        Our products have been created to have high quality and taste. Using premium natural ingredients with traditional recipes and strict quality control, our products are wholesomely nutritious and have consistent quality. 
+        className="text-md about-paragraph">
+        Crafted with care and a focus on excellence, our products are made using high-quality natural ingredients and time-honored methods. We maintain strict standards to ensure every item is consistently flavorful, nourishing, and made to perfection. 
       </motion.div>
 
       <motion.div
@@ -47,8 +47,8 @@ function About() {
         initial='hiddenRight'
         animate={filosofiTitle.isInView ? 'visibleX' : ''} 
         className="mt-14 flex items-center">
-        <span className='w-[50px] h-[3px] rounded block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Philosophy</span>
+        <span className='page-title-line'></span>
+        <span className="page-title">Our Philosophy</span>
       </motion.div>
 
       <motion.div
@@ -56,8 +56,8 @@ function About() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={filosofiContent.isInView ? 'visibleY' : ''} 
-        className="text-3xl sm:text-4xl mt-10 max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl 2xl:max-w-7xl">
-        High-quality, refined, and delicious bread and pastries
+        className="about-heading">
+        Exquisite, flavorful, and thoughtfully crafted baked goods.
       </motion.div>
 
       <motion.div
@@ -65,8 +65,8 @@ function About() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={filosofiContent.isInView ? 'visibleY' : ''}
-        className="text-md md:text-lg mt-10 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl">
-        We have taken into account all of these key factors as we have developed our products with high quality, taste, and presentation in mind. As we strive to build a reputation as a leader in quality, we have invested in skilled human resources, synergistically moving together with highly automated manufacturing equipment.  
+        className="text-md about-paragraph">
+        Every aspect—from flavor and texture to visual appeal—has been carefully considered in the creation of our products. In our pursuit of excellence, we combine the expertise of dedicated professionals with the precision of advanced baking technology, ensuring consistent results that reflect our commitment to quality.  
       </motion.div>
 
       <motion.div
@@ -83,7 +83,7 @@ function About() {
             height={510}
             unoptimized
             loading="lazy"
-            className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
+            className="about-picture"
           />
         </div>
         <div className="mb-2 mr-2">
@@ -94,7 +94,7 @@ function About() {
             height={510}
             unoptimized
             loading="lazy"
-            className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
+            className="about-picture"
           />
         </div>
         <div className="mb-2 mr-2">
@@ -105,7 +105,7 @@ function About() {
             height={510}
             unoptimized
             loading="lazy"
-            className="w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] object-cover"
+            className="about-picture"
           />
         </div>
       </motion.div>

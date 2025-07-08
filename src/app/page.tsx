@@ -42,8 +42,8 @@ export default function Home() {
         initial='hiddenRight'
         animate={isInView ? 'visibleX' : ''}
         className="ml-4 mt-10 flex items-center">
-        <span className='w-[50px] h-[3px] rounded my-2 block bg-[#5E50D2]/70'></span>
-        <span className="ml-10 text-[#5E50D2] text-lg font-semibold">Our Products</span>
+        <span className='page-title-line'></span>
+        <span className="page-title">Our Products</span>
       </motion.div>
 
       <motion.p 

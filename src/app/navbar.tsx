@@ -34,12 +34,12 @@ function Navbar() {
   },[])
   
   return (
-    <header className='w-full flex bg-[#f7f7f9] items-center justify-between lg:justify-center absolute top-0 left-0 z-[9999] 4xl:py-2 4xl:px-5'>
+    <header className='w-full flex bg-whiteNav items-center justify-between lg:justify-center absolute top-0 left-0 z-[9999] 4xl:py-2 4xl:px-5'>
       <div className='flex items-center'>
         <button type='button' className='ml-2 mr-3 lg:hidden' onClick={() => setHamburgerMenu(prev => !prev)}>
-          <span className='w-[30px] h-[2px] my-2 block bg-black opacity-50 rounded'></span>
-          <span className={`${hamburgerMenu ? 'w-[30px]' : 'w-[18px]'} h-[2px] my-2 block bg-black opacity-50 rounded duration-700`}></span>
-          <span className='w-[30px] h-[2px] my-2 block bg-black opacity-50 rounded'></span>
+          <span className='w-[30px] hamburger-line'></span>
+          <span className={`${hamburgerMenu ? 'w-[30px]' : 'w-[18px]'} hamburger-line duration-700`}></span>
+          <span className='w-[30px] hamburger-line'></span>
         </button>  
 
         <Link href='/'>
@@ -55,22 +55,22 @@ function Navbar() {
         </Link>
       </div>
       
-      <div className={`${hamburgerMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4 lg:-translate-y-0 lg:pointer-events-auto'} absolute top-full left-0 bg-white/50 backdrop-blur-sm z-50 duration-700 lg:opacity-100 lg:bg-[#f7f7f9] lg:relative lg:top-auto lg:mx-14 lg:flex lg:items-center`}>
+      <div className={`${hamburgerMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4 lg:-translate-y-0 lg:pointer-events-auto'} absolute top-full left-0 bg-white/50 backdrop-blur-sm z-50 duration-700 lg:opacity-100 lg:bg-whiteNav lg:relative lg:top-auto lg:mx-14 lg:flex lg:items-center`}>
         <ul className='flex flex-col ml-6 lg:flex-row lg:text-md xl:text-md 4xl:text-xl mb-1 lg:mb-0'>
           <Link href='/' onClick={() => setHamburgerMenu(prev => !prev)}>
-            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Home</li>
+            <li className={`nav-menu ${pathname === '/' ? 'text-purple-700' : 'text-black'} `}>Home</li>
           </Link>
           <Link href={`/product/burnt-cheese-cake`} onClick={() => setHamburgerMenu(prev => !prev)}>
-            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/product' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Product</li>
+            <li className={`nav-menu ${pathname === '/product' ? 'text-purple-700' : 'text-black'}`}>Product</li>
           </Link>
           <Link href='/about' onClick={() => setHamburgerMenu(prev => !prev)}>
-            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/about' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>About</li>
+            <li className={`nav-menu ${pathname === '/about' ? 'text-purple-700' : 'text-black'}`}>About</li>
           </Link>
           <Link href='/outlet' onClick={() => setHamburgerMenu(prev => !prev)}>
-            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Outlet</li>
+            <li className={`nav-menu ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'}`}>Outlet</li>
           </Link>
-          <Link href='/about/profile' onClick={() => setHamburgerMenu(prev => !prev)}>
-            <li className={`lg:mr-14 mr-4 mb-8 lg:mb-0 hover:text-purple-700 duration-500 ${pathname === '/about/profile' ? 'text-purple-700' : 'text-black'} cursor-pointer`}>Review</li>
+          <Link href='/review' onClick={() => setHamburgerMenu(prev => !prev)}>
+            <li className={`nav-menu ${pathname === '/review' ? 'text-purple-700' : 'text-black'}`}>Review</li>
           </Link>
         </ul>
       </div>
@@ -81,7 +81,7 @@ function Navbar() {
             <Image 
             src='/icons/instagram.png' 
             alt='instagram'
-            className='w-9 h-9 mr-4 group-hover:-translate-y-2 shadow-lg duration-300 ease-out'
+            className='navbar-icon'
             width={500}
             height={500}
             />
@@ -93,7 +93,7 @@ function Navbar() {
           <Image 
             src='/icons/tiktok.png' 
             alt='tiktok'
-            className='w-9 h-9 mr-4 group-hover:-translate-y-2 shadow-lg duration-300 ease-out '
+            className='navbar-icon'
             width={500}
             height={500}
             />
