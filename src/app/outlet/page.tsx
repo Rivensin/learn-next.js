@@ -13,7 +13,6 @@ const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
 })
 
 function Outlet() {
-
   const outletTitle = useScrollAnimation('-100px',false)
   const outletMap = useScrollAnimation('-100px',false)
   const location = useScrollAnimation('-100px',false)

@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper";
+import ScrollTop from "@/components/layout/ScrollTop";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -55,8 +56,9 @@ export default function RootLayout({children,} : Readonly<{children: React.React
     <html lang="en">
       <body className={`${poppins.className} ${roboto.variable} scroll-smooth`} >
         <SessionProviderWrapper>
+          <ScrollTop />
           <Navbar /> 
-          {children}
+            {children}
           <Footer />
         </SessionProviderWrapper>
       </body>
