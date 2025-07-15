@@ -3,6 +3,17 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
+  images : {
+    remotePatterns : [
+      {
+        protocol: 'https',
+        hostname: 'yt3.googleusercontent.com',
+        port: '',
+        pathname:'/**',
+      },
+    ]
+  },
+
   eslint: {
     ignoreDuringBuilds: true,
   },

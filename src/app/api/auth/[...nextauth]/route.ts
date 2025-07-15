@@ -59,6 +59,7 @@ const authOptions : NextAuthOptions =
         const data = {
           fullname: user.name,
           email: user.email,
+          image: user.image,
           type: 'google'
         }
 
@@ -67,6 +68,7 @@ const authOptions : NextAuthOptions =
           token.email = result.data.email
           token.fullname = result.data.fullname
           token.role = result.data.role
+          token.image= result.data.image
         }
         })
       }
@@ -84,6 +86,10 @@ const authOptions : NextAuthOptions =
 
       if('role' in token){
         session.user.role = token.role
+      }
+
+      if('image' in token){
+        session.user.image = token.image
       }
 
       return session

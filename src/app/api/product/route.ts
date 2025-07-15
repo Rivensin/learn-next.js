@@ -1,12 +1,10 @@
-import { retriveData, retriveDataById } from "@/lib/firebase/services";
+import { retriveData, retriveDataByCategory, retriveDataById } from "@/lib/firebase/services";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest){
   
-  // const {searchParams} = new URL(request.url)
-  // const id = searchParams.get('id')
-
   const id = request.nextUrl.searchParams.get('id')
+  const category = request.nextUrl.searchParams.get('category')
   
   if(id){
     const detailProduct = await retriveDataById('products',id)
@@ -28,13 +26,30 @@ export async function GET(request: NextRequest){
       )
     }
   }
+
+  if(category){
+    const categoryProduct = await retriveDataByCategory('products',category)
+    if(categoryProduct){
+      return NextResponse.json({
+        status: 200, 
+        message:'success',
+        data: categoryProduct
+      })
+    } else {
+      return NextResponse.json({
+        status: 200, 
+        message:'data not found',
+        data: {}
+      })
+    }
+  }
   
   const product = await retriveData('products')
-
+  
   return NextResponse.json(
     {
       status: 200, 
-      message:'sucess',
+      message:'success',
       data: product
     }
   )

@@ -3,15 +3,13 @@ import Link from "next/link"
 import Image from "next/image"
 import useSWR from "swr"
 import { useParams, useRouter } from "next/navigation"
-import { Suspense, useEffect, useState } from "react"
-import ProductLoading from "@/components/fragments/ProductLoading"
-import { cardVariant, useScrollAnimation } from "@/components/fragments/motion"
-import { motion, useInView } from "framer-motion"
+import { useEffect, useState } from "react"
+import { cardVariant } from "@/components/fragments/motion"
+import { motion } from "framer-motion"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 function ProductPage(props: any) {
-
   const {category} = useParams()
   const router = useRouter()
   const [unoptimized, setUnoptimized] = useState(false) 
@@ -23,15 +21,13 @@ function ProductPage(props: any) {
       .join(' ')
   : ''
   
-  const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, fetcher)
+  const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product?category=${category}`, fetcher)
 
-    const products = {
-      data: data?.data
-    }
+  const products = {
+    data: data?.data
+  }
 
-    const filteredProduct = products.data?.filter((product: any) => 
-      product.category.toLowerCase() === (typeof category === 'string' ? category.toLowerCase() : ''))
-       .sort((a:any,b:any) => a.name.localeCompare(b.name, 'en', {sensitivity: 'base'}))
+  const filteredProduct = products.data?.sort((a:any,b:any) => a.name.localeCompare(b.name, 'en', {sensitivity: 'base'}))
   
   useEffect(() => {
     const updateOptimized = () => {
@@ -45,9 +41,8 @@ function ProductPage(props: any) {
   },[])
 
   return (
-    <Suspense fallback={<ProductLoading />}>
-    <title>Products | Dlooti</title>
     <div className="overflow-hidden">  
+    <title>Products | Dlooti</title>
       <motion.div
         variants={cardVariant}
         initial='hiddenRight'
@@ -97,7 +92,7 @@ function ProductPage(props: any) {
         {filteredProduct?.length > 0 && (
           filteredProduct?.map((product: any) => (
             <div key ={product.id} 
-                className='mb-6 shadow-lg'>
+                 className='mb-6 shadow-lg'>
               <div className="overflow-hidden group">
                 <Link href={`/product/detail/${product.id}`}>
                   <Image 
@@ -116,10 +111,16 @@ function ProductPage(props: any) {
               </div>         
             </div>
           ))
+        ) 
+        }
+        {!filteredProduct && (
+          Array.from({ length: 6 }).map((_, index) => (
+          <div key={index} className="h-[320px] sm:h-[368px] md:h-[400px] lg:h-[464px] xl:h-[464px] 2xl:h-[464px] bg-slate-300 animate-pulse"/>
+          ))
         )}
+        
       </motion.div>
     </div>
-    </Suspense>
   ) 
 }
 

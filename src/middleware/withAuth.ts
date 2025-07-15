@@ -1,7 +1,6 @@
 import { NextFetchEvent, NextMiddleware, NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-const onlyAdminPage = ['/dashboard']
 const authPage = ['/login','/register']
 
 export default function withAuth(middleware: NextMiddleware, requireAuth: string[] = []){
@@ -23,10 +22,6 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
       if(token){
         if(authPage.includes(pathname)){
           return NextResponse.redirect(new URL('/',req.url))
-        }
-
-        if(token.role !== 'admin' && onlyAdminPage.includes(pathname)){
-        return NextResponse.redirect(new URL('/',req.url))
         }
       }
     }

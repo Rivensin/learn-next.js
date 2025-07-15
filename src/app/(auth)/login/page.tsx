@@ -38,19 +38,28 @@ function LoginPage({searchParams}: any) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 border">
+    <div className="flex flex-col justify-center px-6 lg:px-8 mt-32">
       <div className='mx-auto shadow-gray-400 px-10 py-10 rounded-lg shadow-md'>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <Image className="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" width={500} height={500} />
-        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+            <Image 
+              className="mx-auto w-36 h-36"
+              unoptimized 
+              src="/icons/icon.png" 
+              alt="Dlooti" 
+              width={500} 
+              height={500} 
+            />
+          <h2 className="mt-2 text-center text-2xl/3 font-bold tracking-tight text-gray-900 ">
+            Sign in to your account
+          </h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={e => handleLogin(e)}>
             <div>
-              <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">Email address</label>
+              <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900 ">Email address</label>
               <div className="mt-2">
-                <input type="email" name="email" id="email" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder='Email'/>
+                <input type="email" name="email" id="email" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base border-2 border-slate-300 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-8 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 shadow-lg" placeholder='Email'/>
               </div>
             </div>
 
@@ -59,7 +68,7 @@ function LoginPage({searchParams}: any) {
                 <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">Password</label>
               </div>
               <div className="mt-2">
-                <input type="password" name="password" id="password" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder='Password'/>
+                <input type="password" name="password" id="password" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base border-2 border-slate-300 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 shadow-lg" placeholder='Password'/>
               </div>
             </div>
 
@@ -69,24 +78,28 @@ function LoginPage({searchParams}: any) {
               <button 
                 type="submit" 
                 disabled={isLoading} 
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 shadow-lg duration-700 transition-all">
                   {isLoading ? 'Loading...' : 'Login'}
               </button>
             </div>
           </form>
 
-          <p className="mt-10 text-center text-sm/6 text-gray-500">
+          <p className="mt-6 text-center text-sm/6 text-gray-500">
             Not a member?
-            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500"> Register</Link>
+            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all"> Register</Link>
           </p>
-          <div className="flex items-center justify-center mt-2">
-            <Image src='https://yt3.googleusercontent.com/K8WVrQAQHTTwsHEtisMYcNai7p7XIlyEAdZg86qYw78ye57r5DRemHQ9Te4PcD_v98HB-ZvQjQ=s900-c-k-c0x00ffffff-no-rj' 
-                   className='w-8 h-8'
+          <div 
+            className="flex items-center justify-center mt-2 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all"
+            onClick={() => signIn('google',{callbackURL, redirect: false})}>
+            <Image src='/icons/google.png' 
+                   className='w-5 h-5'
+                   unoptimized
                    width={30} 
                    height={30}
-                   alt='google'
-                   loading='lazy'/>
-            <button type='button' className="ml-2 text-sm/6 text-gray-500 cursor-pointer" onClick={() => signIn('google',{callbackURL, redirect: false})}>
+                   alt='google'/>
+            <button 
+              type='button' 
+              className="ml-2 text-sm/6 text-gray-500">
               Login With Google
             </button>
           </div>

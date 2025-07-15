@@ -20,11 +20,24 @@ export async function retriveDataById(collectionName: string, id: string){
   return data
 }
 
-export async function register(data: {fullname: string, email:string, password: string, role?:string}){
-  const q = query(collection(firestore,'users'), where('email','==',data.email),)
-
+export async function retriveDataByCategory(collectionName: string, category: string){
+  const q = query(collection(firestore, collectionName), where('category','==',category))
+  
   const snapshot = await getDocs(q)
 
+  const result = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+
+  return result
+}
+
+export async function register(data: {fullname: string, email:string, password: string, role?:string}){
+  const q = query(collection(firestore,'users'), where('email','==',data.email),)
+  
+  const snapshot = await getDocs(q)
+  
   const users = snapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data(),

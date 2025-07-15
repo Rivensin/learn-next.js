@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { cardVariant, useScrollAnimation } from '@/components/fragments/motion'
 
 export default function Footer() {
-  const pinkBg = useScrollAnimation('-80px',false)
+  const pinkBg = useScrollAnimation('-60px',false)
   const pinkBgContent = useScrollAnimation('-100px',false)
-  const pinkBgContent2 = useScrollAnimation('-80px',false)
+  const pinkBgContent2 = useScrollAnimation('-30px',false)
   const purpleBg = useScrollAnimation('-60px',false)
   const purpleBgContent = useScrollAnimation('-100px',false)
   const purpleBgContent2 = useScrollAnimation('-100px',false)

@@ -6,14 +6,14 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 function Navbar() {
-  const {data: session, status} : {data: any, status: string} = useSession()
   const pathname = usePathname()
-  const disableNavbar = ['/login', '/register']
+  // const disableNavbar = ['/login', '/register']
+  // if(disableNavbar.includes(pathname)){
+  //   return null
+  // }
+
+  const {data: session, status} : {data: any, status: string} = useSession()
   const [hamburgerMenu,setHamburgerMenu] = useState(false)
-  
-  if(disableNavbar.includes(pathname)){
-    return null
-  }
 
   useEffect(() => {
     const header = document.querySelector('header');
@@ -51,25 +51,26 @@ function Navbar() {
             width={150}
             height={100}
             priority
+            onClick={() => setHamburgerMenu(false)}
           />
         </Link>
       </div>
       
       <div className={`${hamburgerMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4 lg:-translate-y-0 lg:pointer-events-auto'} absolute top-full left-0 bg-white/50 backdrop-blur-sm z-50 duration-700 lg:opacity-100 lg:bg-whiteNav lg:relative lg:top-auto lg:mx-14 lg:flex lg:items-center`}>
         <ul className='flex flex-col ml-6 lg:flex-row lg:text-md xl:text-md 4xl:text-xl mb-1 lg:mb-0'>
-          <Link href='/' onClick={() => setHamburgerMenu(prev => !prev)}>
+          <Link href='/' onClick={() => setHamburgerMenu(false)}>
             <li className={`nav-menu ${pathname === '/' ? 'text-purple-700' : 'text-black'} `}>Home</li>
           </Link>
-          <Link href={`/product/burnt-cheese-cake`} onClick={() => setHamburgerMenu(prev => !prev)}>
+          <Link href={`/product/burnt-cheese-cake`} onClick={() => setHamburgerMenu(false)}>
             <li className={`nav-menu ${pathname === '/product' ? 'text-purple-700' : 'text-black'}`}>Product</li>
           </Link>
-          <Link href='/about' onClick={() => setHamburgerMenu(prev => !prev)}>
+          <Link href='/about' onClick={() => setHamburgerMenu(false)}>
             <li className={`nav-menu ${pathname === '/about' ? 'text-purple-700' : 'text-black'}`}>About</li>
           </Link>
-          <Link href='/outlet' onClick={() => setHamburgerMenu(prev => !prev)}>
+          <Link href='/outlet' onClick={() => setHamburgerMenu(false)}>
             <li className={`nav-menu ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'}`}>Outlet</li>
           </Link>
-          <Link href='/review' onClick={() => setHamburgerMenu(prev => !prev)}>
+          <Link href='/review' onClick={() => setHamburgerMenu(false)}>
             <li className={`nav-menu ${pathname === '/review' ? 'text-purple-700' : 'text-black'}`}>Review</li>
           </Link>
         </ul>
