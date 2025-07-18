@@ -7,11 +7,11 @@ import { useRef } from "react";
 import { cardVariant, useScrollAnimation } from "@/components/fragments/motion";
 
 export default function Home() {
-  const bccView = useScrollAnimation();
-  const ccView = useScrollAnimation();
-  const fbView = useScrollAnimation();
-  const scView = useScrollAnimation();
-  const tcView = useScrollAnimation(); 
+  const bccView = useScrollAnimation('-100px',true);
+  const ccView = useScrollAnimation('-100px',true);
+  const fbView = useScrollAnimation('-100px',true);
+  const scView = useScrollAnimation('-100px',true);
+  const tcView = useScrollAnimation('-100px',true); 
 
   const ref= useRef(null)
   const isInView = useInView(ref,{margin:'-100px', once:true})

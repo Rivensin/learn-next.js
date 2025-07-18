@@ -9,6 +9,7 @@ export default function Review(){
   
   const fetcher = (url: string) => fetch(url).then(res => res.json())
   const {data: session, status} : {data: any, status: string} = useSession()
+  console.log(status)
   
   const reviewTitle = useScrollAnimation('-100px',true) 
   const reviewList = useScrollAnimation('-100px',true)  
@@ -54,11 +55,14 @@ export default function Review(){
         variants={cardVariant}
         initial='hiddenBot'
         animate={reviewList.isInView ? 'visibleY' : ''} 
-        className="mt-10 gap-6 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-2 pr-2">
-        {review.data?.map((review: any) => (
-          <div key={review.id} className="bg-white rounded-lg border-2 border-slate-100 shadow-md p-2">
+        className="mt-10 gap-4 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-2 pr-2">
+        
+      {review?.data 
+        ?   
+          review.data?.map((review: any) => (
+          <div key={review.id} className="bg-white rounded-lg border-2 border-slate-100 shadow-md px-2 py-4 hover:-translate-y-2 hover:duration-700 hover:ease-out hover:border-pinkBg transition-all">
             <div className="flex justify-start">
-              <div className="">
+              <div>
                 <Image
                   src='/profile/profile.png'
                   alt='profile'
@@ -72,30 +76,48 @@ export default function Review(){
                 <div>{review.name}</div>
                 <div>{review.tanggal}</div>
               </div>
-              
             </div>
             <div>
               <Image
-                className="w-28 h-12 object-contain"
+                className="w-28 h-10 object-contain"
                 src={`/icons/${review.rating}.png`}
                 alt={review.rating}
                 width={192}
                 height={38}>
               </Image>
             </div>
-            <div className="text-[#949494] italic">"{review.desc}"</div>
+            <div className="text-[#949494] italic mt-2">"{review.desc}"</div>
           </div>
-        ))}
+          ))
+        : 
+          Array.from({length : review.data?.length}).map((_,index) => (
+            <div key={index} className="w-[196px] h-[160px] bg-slate-300 rounded-lg shadow-md px-2 py-4 animate-pulse duration-700 ease-out transition-all">
+            </div>
+          ))
+      } 
       </motion.div>
+      
 
-      <motion.div 
+      {!review && (
+        <motion.div
+        ref={reviewList.ref}
+        variants={cardVariant}
+        initial='hiddenBot'
+        animate={reviewList.isInView ? 'visibleY' : ''} 
+        className="mt-10 gap-4 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-2 pr-2">
+        
+        </motion.div>
+      )}
+      
+      {status && (
+        <motion.div 
         ref={loginButton.ref}
         variants={cardVariant}
         initial='hiddenRight'
         animate={loginButton.isInView ? 'visibleX' : ''} 
-        className="mt-6 bg-black text-white w-36 h-12 hover:shadow-2xl hover:bg-black/60 duration-500 transition-colors rounded cursor-pointer">
+        className="mt-6 mb-20 bg-black text-white w-36 h-12 hover:shadow-2xl hover:bg-black/80 duration-300 ease-out transition-all rounded cursor-pointer">
           
-        {status === 'unauthenticated' ? 
+        {status === 'unauthenticated' || status === 'loading' ? 
           (
             <button
               onClick={() => signIn()} 
@@ -111,10 +133,8 @@ export default function Review(){
             </button>
           )
         }
-        
         </motion.div>
-
-
+      )}
     </div>
   )
 }

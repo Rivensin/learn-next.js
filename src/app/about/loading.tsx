@@ -8,7 +8,6 @@ function Loading() {
       </div>
 
       <div className="about-heading-loading"></div>
-
       <div className="about-paragraph-loading"></div>
 
       <div className="mt-14 flex items-center">
@@ -21,9 +20,9 @@ function Loading() {
       <div className="about-paragraph-loading"></div>
 
       <div className="flex mt-10 justify-evenly">
-        <div className="mb-2 mr-2 w-[589px] h-[700px] animate-pulse bg-slate-300 ease-out"></div>
-        <div className="mb-2 mr-2 w-[589px] h-[700px] animate-pulse bg-slate-300 ease-out"></div>
-        <div className="mb-2 mr-2 w-[589px] h-[700px] animate-pulse bg-slate-300 ease-out"></div>
+        <div className="mb-2 mr-2 about-picture-loading"></div>
+        <div className="mb-2 mr-2 about-picture-loading"></div>
+        <div className="mb-2 mr-2 about-picture-loading"></div>
       </div>
     </div>
   )

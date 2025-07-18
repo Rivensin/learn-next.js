@@ -5,7 +5,7 @@ export function mainMiddleware(request: NextRequest){
   return NextResponse.next() //Middleware utama yang hanya melanjutkan ke proses selanjutnya tanpa mengubah apapun.
 }
 
-export default withAuth(mainMiddleware,['/login','/register']) //Menjalankan mainMiddleware, tapi dengan proteksi autentikasi di route /dashboard.
+export default withAuth(mainMiddleware,['/review/form']) //Menjalankan mainMiddleware, tapi dengan proteksi autentikasi di route /dashboard.
 
 
 //const isLogin = true
@@ -13,5 +13,5 @@ export default withAuth(mainMiddleware,['/login','/register']) //Menjalankan mai
 //   return NextResponse.redirect(new URL('/login',request.url));
 // }
 // export const config = {
-// matcher: ['/dashboard/:path*','/about/:path*']
+//  matcher: ['/dashboard/:path*','/about/:path*']
 // }

@@ -15,7 +15,7 @@ const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
 function Outlet() {
   const outletTitle = useScrollAnimation('-100px',true)
   const outletMap = useScrollAnimation('-100px',true)
-  const location = useScrollAnimation('-100px',false)
+  const location = useScrollAnimation('-100px',true)
 
   return (  
     <div className="overflow-hidden lg:ml-28">
@@ -44,7 +44,7 @@ function Outlet() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={outletMap.isInView ? 'visibleY' : ''} 
-        className="mt-10 ml-10 sm:ml-4 mb-16">
+        className="mt-10 ml-8 sm:ml-4 mb-16">
         <StoreMap />
       </motion.div>
 
@@ -53,7 +53,7 @@ function Outlet() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={location.isInView ? 'visibleY' : ''}
-        className="border-2 border-pinkBg lg:p-2 ml-10 sm:ml-6 lg:flex justify-center items-center [width:clamp(320px,80vw,590px)] sm:[width:clamp(530px,90vw,718px)] md:[width:clamp(691px,90vw,974px)] lg:w-[95%] lg:min-w-[850px] lg:w-max-[1100px] xl:w-[95%] xl:min-w-[1100px] xl:max-w-[1500px] shadow-lg overflow-hidden">
+        className="border-2 border-pinkBg lg:p-2 ml-8 sm:ml-6 lg:flex justify-center items-center [width:clamp(320px,80vw,590px)] sm:[width:clamp(530px,90vw,718px)] md:[width:clamp(691px,90vw,974px)] lg:w-[95%] lg:min-w-[850px] lg:w-max-[1100px] xl:w-[95%] xl:min-w-[1100px] xl:max-w-[1500px] shadow-lg overflow-hidden">
           <motion.div 
           ref={location.ref}
           variants={cardVariant}

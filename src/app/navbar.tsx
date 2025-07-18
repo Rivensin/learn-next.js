@@ -14,6 +14,7 @@ function Navbar() {
 
   const {data: session, status} : {data: any, status: string} = useSession()
   const [hamburgerMenu,setHamburgerMenu] = useState(false)
+  console.log(session)
 
   useEffect(() => {
     const header = document.querySelector('header');
@@ -59,20 +60,26 @@ function Navbar() {
       <div className={`${hamburgerMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4 lg:-translate-y-0 lg:pointer-events-auto'} absolute top-full left-0 bg-white/50 backdrop-blur-sm z-50 duration-700 lg:opacity-100 lg:bg-whiteNav lg:relative lg:top-auto lg:mx-14 lg:flex lg:items-center`}>
         <ul className='flex flex-col ml-6 lg:flex-row lg:text-md xl:text-md 4xl:text-xl mb-1 lg:mb-0'>
           <Link href='/' onClick={() => setHamburgerMenu(false)}>
-            <li className={`nav-menu ${pathname === '/' ? 'text-purple-700' : 'text-black'} `}>Home</li>
+            <li className={`nav-menu hover:text-purple-700 ${pathname === '/' ? 'text-purple-700' : 'text-black'} `}>Home</li>
           </Link>
           <Link href={`/product/burnt-cheese-cake`} onClick={() => setHamburgerMenu(false)}>
-            <li className={`nav-menu ${pathname === '/product' ? 'text-purple-700' : 'text-black'}`}>Product</li>
+            <li className={`nav-menu hover:text-purple-700 ${pathname === '/product' ? 'text-purple-700' : 'text-black'}`}>Product</li>
           </Link>
           <Link href='/about' onClick={() => setHamburgerMenu(false)}>
-            <li className={`nav-menu ${pathname === '/about' ? 'text-purple-700' : 'text-black'}`}>About</li>
+            <li className={`nav-menu hover:text-purple-700 ${pathname === '/about' ? 'text-purple-700' : 'text-black'}`}>About</li>
           </Link>
           <Link href='/outlet' onClick={() => setHamburgerMenu(false)}>
-            <li className={`nav-menu ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'}`}>Outlet</li>
+            <li className={`nav-menu hover:text-purple-700 ${pathname === '/outlet' ? 'text-purple-700' : 'text-black'}`}>Outlet</li>
           </Link>
           <Link href='/review' onClick={() => setHamburgerMenu(false)}>
-            <li className={`nav-menu ${pathname === '/review' ? 'text-purple-700' : 'text-black'}`}>Review</li>
+            <li className={`nav-menu hover:text-purple-700 ${pathname === '/review' ? 'text-purple-700' : 'text-black'}`}>Review</li>
           </Link>
+          {session && (
+            <>
+              <li className={`nav-menu underline text-purple-700`}>{session?.user.name}</li>
+              <li onClick={() => signOut()} className={`nav-menu underline hover:text-red-700/50 text-red-700 cursor-pointer`}>Logout</li>
+            </>
+          )}
         </ul>
       </div>
 

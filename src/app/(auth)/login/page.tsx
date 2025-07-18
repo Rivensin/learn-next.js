@@ -2,14 +2,16 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 
-function LoginPage({searchParams}: any) {
+function LoginPage() {
+  
   const router = useRouter()
   const [error,setError] = useState('')
   const [isLoading,setIsLoading] = useState(false)  
-  const callbackURL = searchParams.callbackUrl || '/'
+  // const searchParams = useSearchParams()
+  // const callbackURL = searchParams.get('callbackUrl') || '/'   
   
   const handleLogin = async(e: any) => {
     setIsLoading(true)
@@ -19,12 +21,12 @@ function LoginPage({searchParams}: any) {
         redirect: false,
         email: e.target.email.value,
         password: e.target.password.value,
-        callbackUrl: callbackURL
+        callbackUrl: '/review/form'
       })
 
       if(!res?.error){
         setIsLoading(false)
-        router.push(callbackURL)
+        router.push('/review/form')
       } else {
         if(res.status === 401){
           setIsLoading(false)
@@ -90,7 +92,7 @@ function LoginPage({searchParams}: any) {
           </p>
           <div 
             className="flex items-center justify-center mt-2 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all"
-            onClick={() => signIn('google',{callbackURL, redirect: false})}>
+            onClick={() => signIn('google',{callbackUrl: '/review/form', redirect: false})}>
             <Image src='/icons/google.png' 
                    className='w-5 h-5'
                    unoptimized

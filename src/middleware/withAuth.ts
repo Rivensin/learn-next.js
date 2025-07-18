@@ -13,15 +13,15 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
         secret: process.env.NEXTAUTH_SECRET,
       })
 
-      if(!token && !authPage.includes(pathname)){
+      if(!token && !authPage.includes(pathname)){ //jika tidak ada hak akses dan path sedang tidak ada di login atau register
         const url = new URL('/login',req.url) //Buat URL redirect ke /login dan
         url.searchParams.set('callbackUrl',encodeURI(req.url)) //tambahkan query param callbackUrl supaya nanti bisa diarahkan kembali ke halaman sebelumnya setelah login.
         return NextResponse.redirect(url)
       }
 
-      if(token){
-        if(authPage.includes(pathname)){
-          return NextResponse.redirect(new URL('/',req.url))
+      if(token){ //jika sudah login
+        if(authPage.includes(pathname)){ //dan jika link sedang berada di login atau register
+          return NextResponse.redirect(new URL('/review/form',req.url)) //alihkan ke page review form
         }
       }
     }
