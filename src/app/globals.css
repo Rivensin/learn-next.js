@@ -107,3 +107,7 @@ body {
 .about-picture-loading{
   @apply w-[180px] h-[300px] sm:w-[382px] md:w-[500px] md:h-[400px] lg:w-[682px] lg:h-[500px] xl:w-[800px] xl:h-[600px] 2xl:w-[900px] 2xl:h-[700px] bg-slate-300 duration-700 ease-out transition-all animate-pulse;
 }
+
+.input-text{
+  @apply block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-8 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 border-2 border-slate-300 shadow-lg
+}

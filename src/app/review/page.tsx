@@ -4,9 +4,9 @@ import { cardVariant, useScrollAnimation } from "@/components/fragments/motion"
 import useSWR from "swr"
 import Image from "next/image"
 import { signIn, useSession, signOut } from "next-auth/react"
+import Button from "@/components/fragments/Button"
 
 export default function Review(){
-  
   const fetcher = (url: string) => fetch(url).then(res => res.json())
   const {data: session, status} : {data: any, status: string} = useSession()
   console.log(status)
@@ -57,10 +57,10 @@ export default function Review(){
         animate={reviewList.isInView ? 'visibleY' : ''} 
         className="mt-10 gap-4 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-2 pr-2">
         
-      {review?.data 
+      {!isLoading 
         ?   
           review.data?.map((review: any) => (
-          <div key={review.id} className="bg-white rounded-lg border-2 border-slate-100 shadow-md px-2 py-4 hover:-translate-y-2 hover:duration-700 hover:ease-out hover:border-pinkBg transition-all">
+          <div key={review.id} className="bg-white rounded-lg border-2 border-slate-100 shadow-md px-2 py-4  hover:duration-700 hover:ease-out hover:border-pinkBg hover:-translate-y-2 transition-all">
             <div className="flex justify-start">
               <div>
                 <Image
@@ -90,47 +90,30 @@ export default function Review(){
           </div>
           ))
         : 
-          Array.from({length : review.data?.length}).map((_,index) => (
-            <div key={index} className="w-[196px] h-[160px] bg-slate-300 rounded-lg shadow-md px-2 py-4 animate-pulse duration-700 ease-out transition-all">
+          Array.from({length : review.data?.length || 2}).map((_,index) => (
+            <div key={index} className="w-[196px] h-[160px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
             </div>
           ))
       } 
       </motion.div>
       
-
-      {!review && (
-        <motion.div
-        ref={reviewList.ref}
-        variants={cardVariant}
-        initial='hiddenBot'
-        animate={reviewList.isInView ? 'visibleY' : ''} 
-        className="mt-10 gap-4 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-2 pr-2">
-        
-        </motion.div>
-      )}
-      
       {status && (
         <motion.div 
-        ref={loginButton.ref}
-        variants={cardVariant}
-        initial='hiddenRight'
-        animate={loginButton.isInView ? 'visibleX' : ''} 
-        className="mt-6 mb-20 bg-black text-white w-36 h-12 hover:shadow-2xl hover:bg-black/80 duration-300 ease-out transition-all rounded cursor-pointer">
-          
+          ref={loginButton.ref}
+          variants={cardVariant}
+          initial='hiddenRight'
+          animate={loginButton.isInView ? 'visibleX' : ''} 
+          className="mt-6 mb-20">
         {status === 'unauthenticated' || status === 'loading' ? 
           (
-            <button
-              onClick={() => signIn()} 
-              className="ml-2 mt-3 text-md text-center">
-                Login to Review
-            </button>
+            <Button onClick={() => signIn()}>
+              Login to Review
+            </Button>
           ) : 
           (
-            <button
-              onClick={() => signOut()} 
-              className="ml-2 mt-3 text-md text-center">
-                Logout
-            </button>
+            <Button onClick={() => signOut()}>
+              Logout
+            </Button>
           )
         }
         </motion.div>

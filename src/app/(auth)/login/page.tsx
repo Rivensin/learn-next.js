@@ -40,18 +40,18 @@ function LoginPage() {
   }
 
   return (
-    <div className="flex flex-col justify-center px-6 lg:px-8 mt-32">
-      <div className='mx-auto shadow-gray-400 px-10 py-10 rounded-lg shadow-md'>
+    <div className="flex flex-col justify-center pt-4 lg:px-10 mt-32">
+      <div className='mx-auto shadow-gray-400 px-10 py-10 rounded-lg shadow-md border-t-2'>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Image 
-              className="mx-auto w-36 h-36"
+              className="mx-auto w-36 h-32"
               unoptimized 
               src="/icons/icon.png" 
               alt="Dlooti" 
               width={500} 
               height={500} 
             />
-          <h2 className="mt-2 text-center text-2xl/3 font-bold tracking-tight text-gray-900 ">
+          <h2 className="mt-2 text-center text-2xl/3 font-bold tracking-tight text-gray-900">
             Sign in to your account
           </h2>
         </div>
@@ -61,7 +61,7 @@ function LoginPage() {
             <div>
               <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900 ">Email address</label>
               <div className="mt-2">
-                <input type="email" name="email" id="email" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base border-2 border-slate-300 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-8 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 shadow-lg" placeholder='Email'/>
+                <input type="email" name="email" id="email" required className="input-text" placeholder='Email'/>
               </div>
             </div>
 
@@ -70,7 +70,7 @@ function LoginPage() {
                 <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">Password</label>
               </div>
               <div className="mt-2">
-                <input type="password" name="password" id="password" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base border-2 border-slate-300 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 shadow-lg" placeholder='Password'/>
+                <input type="password" name="password" id="password" required className="input-text" placeholder='Password'/>
               </div>
             </div>
 
@@ -86,12 +86,12 @@ function LoginPage() {
             </div>
           </form>
 
-          <p className="mt-6 text-center text-sm/6 text-gray-500">
+          <p className="mt-6 text-center text-sm text-gray-500">
             Not a member?
-            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all"> Register</Link>
+            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all hover:opacity-80"> Register</Link>
           </p>
           <div 
-            className="flex items-center justify-center mt-2 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all"
+            className="flex items-center justify-center mt-4 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all"
             onClick={() => signIn('google',{callbackUrl: '/review/form', redirect: false})}>
             <Image src='/icons/google.png' 
                    className='w-5 h-5'

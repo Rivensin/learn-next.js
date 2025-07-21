@@ -47,8 +47,8 @@ function Navbar() {
           <Image 
             src='/icons/icon-removebg-preview.png' 
             alt='dlooti-logo'
-            quality={75}
-            className='w-36 h-24 ml-2 4xl:ml-32'
+            unoptimized
+            className='w-32 h-24 ml-2 4xl:ml-32'
             width={150}
             height={100}
             priority
@@ -92,6 +92,8 @@ function Navbar() {
             className='navbar-icon'
             width={500}
             height={500}
+            unoptimized
+            priority
             />
         </Link>
       </div>
@@ -104,6 +106,8 @@ function Navbar() {
             className='navbar-icon'
             width={500}
             height={500}
+            unoptimized
+            priority
             />
         </Link>
       </div>
