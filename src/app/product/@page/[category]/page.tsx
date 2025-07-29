@@ -42,7 +42,6 @@ function ProductPage(props: any) {
 
   return (
     <div className="overflow-hidden">  
-    <title>Products | Dlooti</title>
       <motion.div
         variants={cardVariant}
         initial='hiddenRight'

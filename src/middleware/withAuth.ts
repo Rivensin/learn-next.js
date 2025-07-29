@@ -12,6 +12,7 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
         req,
         secret: process.env.NEXTAUTH_SECRET,
       })
+      console.log(token)
 
       if(!token && !authPage.includes(pathname)){ //jika tidak ada hak akses dan path sedang tidak ada di login atau register
         const url = new URL('/login',req.url) //Buat URL redirect ke /login dan
@@ -21,7 +22,7 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
 
       if(token){ //jika sudah login
         if(authPage.includes(pathname)){ //dan jika link sedang berada di login atau register
-          return NextResponse.redirect(new URL('/review/form',req.url)) //alihkan ke page review form
+          return NextResponse.redirect(new URL('/',req.url)) //alihkan ke page review form
         }
       }
     }

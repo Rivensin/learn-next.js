@@ -11,6 +11,13 @@ const nextConfig: NextConfig = {
         port: '',
         pathname:'/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname:'/**',
+      },
+
     ]
   },
 
@@ -25,15 +32,16 @@ const nextConfig: NextConfig = {
         headers : [
           {
             key: "Content-Security-Policy",
-            value: [
-              "default-src 'self';",
-              `script-src 'self' https://accounts.google.com 'unsafe-inline' ${isDev ? " 'unsafe-eval'" : ''};`,
-              "connect-src 'self' https://www.googleapis.com https://accounts.google.com;",
-              "img-src * data: blob:;",
-              "style-src 'self' 'unsafe-inline';",
-              "frame-src https://accounts.google.com;",
-              "font-src 'self';",
-            ].join(" "),
+            value: 
+              `
+                default-src 'self';
+                script-src 'self' https://accounts.google.com 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ''};
+                connect-src 'self' https://www.googleapis.com https://accounts.google.com;
+                img-src * data: blob:;
+                style-src 'self' 'unsafe-inline';
+                frame-src https://accounts.google.com;
+                font-src 'self';
+              `.replace(/\n/g, "").trim(),
           },
           {
             key: "X-Frame-Options",
@@ -52,23 +60,5 @@ const nextConfig: NextConfig = {
     ]
   }
 }
-
-  /* config options here */
-  // images : {
-  //   remotePatterns : [
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'static.nike.com',
-  //       port: '',
-  //       pathname:'/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'yt3.googleusercontent.com',
-  //       port: '',
-  //       pathname:'/**',
-  //     },
-  //   ]
-  // },
 
 export default nextConfig;

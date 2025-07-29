@@ -1,4 +1,4 @@
-import { easeOut, useInView } from "framer-motion";
+import { easeInOut, easeOut, useInView } from "framer-motion";
 import { useRef } from "react";
 
 export const cardVariant = {
@@ -32,6 +32,14 @@ export const cardVariant = {
       transition:{
         ease: easeOut,
         duration: 0.8
+      }
+    },
+    OutVisibleX: {
+      x:50,
+      opacity:0,
+      transition:{
+        ease: easeInOut,
+        duration: 0.5
       }
     }  
    }

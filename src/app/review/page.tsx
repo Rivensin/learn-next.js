@@ -1,29 +1,32 @@
 'use client'
-import { motion } from "framer-motion"
+import { easeOut, motion } from "framer-motion"
 import { cardVariant, useScrollAnimation } from "@/components/fragments/motion"
 import useSWR from "swr"
 import Image from "next/image"
 import { signIn, useSession, signOut } from "next-auth/react"
 import Button from "@/components/fragments/Button"
+import {useEffect, useMemo, useState } from "react"
+import Link from "next/link"
 
 export default function Review(){
-  const fetcher = (url: string) => fetch(url).then(res => res.json())
-  const {data: session, status} : {data: any, status: string} = useSession()
-  console.log(status)
-  
   const reviewTitle = useScrollAnimation('-100px',true) 
   const reviewList = useScrollAnimation('-100px',true)  
-  const loginButton = useScrollAnimation('-100px',true)    
 
+  const fetcher = (url: string) => fetch(url).then(res => res.json())
   const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/review`,fetcher)
+  const {data: session, status} : {data: any, status: string} = useSession()
 
   const review = {
     data : data?.data
   }
 
+  const hasReview = useMemo(() => {
+    if(!review?.data || !session?.user?.name) return null
+    return review.data.filter((data: any) => data.name.includes(session.user.name)
+  )},[session?.user.name,review.data])
+  
   return (
     <div className="overflow-hidden ml-4 lg:ml-28">
-      <title>Review | Dlooti</title>
       <motion.div
         ref={reviewTitle.ref}
         variants={cardVariant}
@@ -44,7 +47,7 @@ export default function Review(){
             All Reviews 
           </div>
           {review.data?.length ? 
-            <div className="mt-1 w-7 h-5 bg-purpleBg text-white rounded-full text-sm text-center hover:opacity-80 hover:text-red-500 duration-700 transition-all">
+            <div className="mt-1 w-7 h-5 bg-purpleBg text-white rounded-full text-sm text-center hover:opacity-80 hover:text-red-500 ">
               {review.data?.length}
             </div>
             : ''}
@@ -60,13 +63,13 @@ export default function Review(){
       {!isLoading 
         ?   
           review.data?.map((review: any) => (
-          <div key={review.id} className="bg-white rounded-lg border-2 border-slate-100 shadow-md px-2 py-4  hover:duration-700 hover:ease-out hover:border-pinkBg hover:-translate-y-2 transition-all">
+          <div key={review.id} className="bg-white rounded-lg border-2 border-white shadow-md px-2 py-4 hover:duration-700 hover:ease-out hover:border-pinkBg hover:-translate-y-2 transition-all">
             <div className="flex justify-start">
               <div>
                 <Image
-                  src='/profile/profile.png'
+                  src={review.image}
                   alt='profile'
-                  className="object-contain"
+                  className="object-contain rounded-full"
                   width={50}
                   height={70}>
 
@@ -74,7 +77,9 @@ export default function Review(){
               </div>
               <div className="ml-4">
                 <div>{review.name}</div>
-                <div>{review.tanggal}</div>
+                <div>
+                  {new Date(review.tanggal).toLocaleDateString('en-GB')}
+                </div>
               </div>
             </div>
             <div>
@@ -96,28 +101,64 @@ export default function Review(){
           ))
       } 
       </motion.div>
-      
-      {status && (
-        <motion.div 
-          ref={loginButton.ref}
-          variants={cardVariant}
-          initial='hiddenRight'
-          animate={loginButton.isInView ? 'visibleX' : ''} 
-          className="mt-6 mb-20">
-        {status === 'unauthenticated' || status === 'loading' ? 
-          (
-            <Button onClick={() => signIn()}>
-              Login to Review
-            </Button>
-          ) : 
-          (
-            <Button onClick={() => signOut()}>
-              Logout
-            </Button>
-          )
-        }
+     
+     {status  === 'authenticated' && hasReview !== null && hasReview.length === 0 &&
+      (
+        <Link href='review/form'>
+          <motion.div 
+            initial={{ x:50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ ease: easeOut, duration: 0.8 }}
+            >
+            <div className="w-36 h-12 mt-10 text-md text-center text-white rounded flex hover:shadow-2xl hover:bg-purpleLn/80 bg-purpleLn justify-center items-center cursor-pointer duration-700 ease-out transition-all">
+              Make a review
+            </div> 
+          </motion.div>
+        </Link>  
+      )
+     }
+
+     {status  === 'authenticated' && hasReview !== null && hasReview.length > 0 &&
+      (
+        <motion.div
+          initial={{ x:50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ ease: easeOut, duration: 0.8 }}>
+          <div className="w-36 h-12 mt-10 text-md text-center text-white rounded flex hover:shadow-2xl hover:bg-slate-500/60 bg-slate-500/80 justify-center items-center cursor-default duration-700 ease-out transition-all">
+            Already review!
+          </div> 
         </motion.div>
-      )}
+      )
+     }
+       
+
+      <motion.div 
+        initial={{ x:50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ ease: easeOut, duration: 0.8 }}
+        className="mt-2 mb-3">
+        {status !== 'loading' && (
+          status === 'authenticated' 
+          ? 
+            (
+              <Button
+                className="mb-20 bg-black hover:bg-black/80" 
+                onClick={() => signOut()}>
+                Logout
+              </Button>
+            )
+           : 
+            (
+              <Button 
+                className="mb-20 bg-black hover:bg-black/80"
+                onClick={() => signIn()}>
+                Login to Review
+              </Button>
+            )
+        )
+        }
+        
+        </motion.div>
     </div>
   )
 }

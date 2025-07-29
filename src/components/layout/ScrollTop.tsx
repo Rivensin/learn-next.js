@@ -8,7 +8,7 @@ function ScrollTop(){
   useEffect(() => {
     function scrollToTop(){
       window.scrollTo(0,0)
-  }
+    }
   scrollToTop()
   },[pathname])
 

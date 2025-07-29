@@ -52,7 +52,6 @@ const authOptions : NextAuthOptions =
       if(account?.provider === 'credentials'){
         token.email = user.email
         token.fullname = user.fullname
-        token.role = user.role
       }
 
       if(account?.provider === 'google'){
@@ -67,7 +66,6 @@ const authOptions : NextAuthOptions =
         if(result.status){
           token.email = result.data.email
           token.fullname = result.data.fullname
-          token.role = result.data.role
           token.image= result.data.image
         }
         })
@@ -84,10 +82,6 @@ const authOptions : NextAuthOptions =
         session.user.name = token.fullname
       }
 
-      if('role' in token){
-        session.user.role = token.role
-      }
-
       if('image' in token){
         session.user.image = token.image
       }
@@ -96,8 +90,7 @@ const authOptions : NextAuthOptions =
     }
   },
   pages: {
-    signIn : '/login',
-    
+    signIn : '/login', 
   }
 }
 

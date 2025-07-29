@@ -12,14 +12,13 @@ const StoreMap = dynamic(() => import("@/components/fragments/StoreMap"), {
   )
 })
 
-function Outlet() {
+export default function Outlet() {
   const outletTitle = useScrollAnimation('-100px',true)
   const outletMap = useScrollAnimation('-100px',true)
   const location = useScrollAnimation('-100px',true)
-
+  
   return (  
     <div className="overflow-hidden lg:ml-28">
-      <title>Outlet | Dlooti</title>
       <motion.div
         ref={outletTitle.ref}
         variants={cardVariant}
@@ -94,5 +93,3 @@ function Outlet() {
     </div>
   )
 }
-
-export default Outlet

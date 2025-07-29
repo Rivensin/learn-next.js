@@ -14,7 +14,6 @@ function Navbar() {
 
   const {data: session, status} : {data: any, status: string} = useSession()
   const [hamburgerMenu,setHamburgerMenu] = useState(false)
-  console.log(session)
 
   useEffect(() => {
     const header = document.querySelector('header');
