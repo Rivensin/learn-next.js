@@ -9,6 +9,8 @@ const authOptions : NextAuthOptions =
 {
   session: {
     strategy: 'jwt', //sesi user akan disimpan di JWT
+    maxAge: 20 * 60,
+    updateAge: 0
   },
   secret: process.env.NEXTAUTH_SECRET,
   providers: [

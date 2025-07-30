@@ -75,7 +75,7 @@ function Navbar() {
           </Link>
           {session && (
             <>
-              <li className={`nav-menu underline text-purple-700`}>{session?.user.name}</li>
+              <li className={`nav-menu underline text-purple-700`}>{session?.user?.name}</li>
               <li onClick={() => signOut()} className={`nav-menu underline hover:text-red-700/50 text-red-700 cursor-pointer`}>Logout</li>
             </>
           )}

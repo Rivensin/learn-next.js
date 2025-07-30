@@ -41,7 +41,7 @@ function LoginPage() {
 
   return (
     <div className="flex flex-col justify-center pt-4 lg:px-10 mt-32">
-      <div className='mx-auto shadow-gray-400 px-10 py-10 rounded-lg shadow-md border-t-2'>
+      <div className='mx-auto shadow-gray-400 p-10 rounded-lg shadow-md border-t-2'>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Image 
               className="mx-auto w-36 h-32"
