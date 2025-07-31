@@ -33,6 +33,14 @@ export async function retriveDataByCategory(collectionName: string, category: st
   return result
 }
 
+export async function retriveDataByEmail(collectionName: string, email: string){
+  const q = query(collection(firestore, collectionName), where('email','==',email))
+  
+  const snapshot = await getDocs(q)
+
+  return !snapshot.empty
+}
+
 export async function addReview(data: {name: string, review: string, rating: number,image: string})
   {
     const q = query(collection(firestore,'review'), where('name','==',data.name))

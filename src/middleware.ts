@@ -7,11 +7,3 @@ export function mainMiddleware(request: NextRequest){
 
 export default withAuth(mainMiddleware,['/review/form']) //Menjalankan mainMiddleware, tapi dengan proteksi autentikasi di route /dashboard.
 
-
-//const isLogin = true
-// if(!isLogin){
-//   return NextResponse.redirect(new URL('/login',request.url));
-// }
-// export const config = {
-//  matcher: ['/dashboard/:path*','/about/:path*']
-// }

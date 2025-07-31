@@ -6,7 +6,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper";
 import ScrollTop from "@/components/layout/ScrollTop";
-import IdleSessionWatcher from "@/components/layout/idleSessionWatcher";
+import IdleSessionWatcher from "@/components/layout/IdleSessionWatcher";
 
 const poppins = Poppins({
   subsets: ['latin'],

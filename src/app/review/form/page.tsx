@@ -40,7 +40,8 @@ export default function FormReview() {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          ...data, 
+          ...data,
+          email: session?.user?.email, 
           image: session?.user?.image || '/profile/profile.png'})
         })
       

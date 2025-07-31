@@ -1,7 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { login, loginWithGoogle } from "@/lib/firebase/services";
+import { login, loginWithGoogle, retriveDataByEmail } from "@/lib/firebase/services";
 import { compare } from "bcrypt";
 import GoogleProvider from 'next-auth/providers/google'
 
@@ -54,7 +54,7 @@ const authOptions : NextAuthOptions =
       if(account?.provider === 'credentials'){
         token.email = user.email
         token.fullname = user.fullname
-      }
+     }
 
       if(account?.provider === 'google'){
         const data = {
@@ -64,14 +64,18 @@ const authOptions : NextAuthOptions =
           type: 'google'
         }
 
-      await loginWithGoogle(data, (result: {status: boolean, data: any}) => {
-        if(result.status){
-          token.email = result.data.email
-          token.fullname = result.data.fullname
-          token.image= result.data.image
-        }
+        await loginWithGoogle(data, (result: {status: boolean, data: any}) => {
+          if(result.status){
+            token.email = result.data.email
+            token.fullname = result.data.fullname
+            token.image= result.data.image
+          }
         })
       }
+
+      const checkEmail = await retriveDataByEmail('review',token.email)
+      token.hasReview = checkEmail
+
       return token
     },
 
@@ -88,6 +92,10 @@ const authOptions : NextAuthOptions =
         session.user.image = token.image
       }
 
+      if('hasReview' in token){
+        session.user.hasReview = token.hasReview || false
+      }
+      
       return session
     }
   },
