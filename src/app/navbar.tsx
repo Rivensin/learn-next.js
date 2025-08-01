@@ -62,7 +62,7 @@ function Navbar() {
             <li className={`nav-menu hover:text-purple-700 ${pathname === '/' ? 'text-purple-700' : 'text-black'} `}>Home</li>
           </Link>
           <Link href={`/product/burnt-cheese-cake`} onClick={() => setHamburgerMenu(false)}>
-            <li className={`nav-menu hover:text-purple-700 ${pathname === '/product' ? 'text-purple-700' : 'text-black'}`}>Product</li>
+            <li className={`nav-menu hover:text-purple-700 ${pathname.startsWith('/product') ? 'text-purple-700' : 'text-black'}`}>Product</li>
           </Link>
           <Link href='/about' onClick={() => setHamburgerMenu(false)}>
             <li className={`nav-menu hover:text-purple-700 ${pathname === '/about' ? 'text-purple-700' : 'text-black'}`}>About</li>

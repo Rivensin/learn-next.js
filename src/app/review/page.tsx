@@ -58,12 +58,12 @@ export default function Review(){
         variants={cardVariant}
         initial='hiddenBot'
         animate={reviewList.isInView ? 'visibleY' : ''} 
-        className="mt-10 gap-4 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-2 pr-2">
+        className="mt-10 gap-4 grid max-w-xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-full grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pb-2 pr-2">
         
       {!isLoading 
         ?   
           review.data?.map((review: any) => (
-          <div key={review.id} className="bg-white rounded-lg border-2 border-white shadow-md px-2 py-4 hover:duration-700 hover:ease-out hover:border-pinkBg hover:-translate-y-2 transition-all">
+          <div key={review.id} className="bg-white rounded-lg border-2 border-gray-300 shadow-lg px-2 py-4 hover:duration-700 hover:ease-in-out hover:border-pinkBg hover:-translate-y-2 transition-all mb-1">
             <div className="flex justify-start">
               <div>
                 <Image
@@ -96,7 +96,7 @@ export default function Review(){
           ))
         : 
           Array.from({length : review.data?.length || 2}).map((_,index) => (
-            <div key={index} className="w-[196px] h-[160px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
+            <div key={index} className="w-[568px] h-[230px] sm:w-[724px] sm:h-[206px] md:w-[981px] md:h-[182px] lg:w-[95%] lg:min-w-[436px] lg:max-w-[560px] lg:h-[254px] xl:min-w-[369px] xl:h-[230px] 2xl:w-[597px] 2xl:h-[230px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
             </div>
           ))
       } 

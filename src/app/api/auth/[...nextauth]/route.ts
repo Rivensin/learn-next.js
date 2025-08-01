@@ -28,7 +28,7 @@ const authOptions : NextAuthOptions =
       async authorize(credentials){  //Tempat login diverifikasi
         const {email,password} = credentials as {email: string, password: string}
 
-        const user : any = await login({email})
+        const user : any = await login(email)
 
         if(user){
           const passwordConfirm = await compare(password, user.password)

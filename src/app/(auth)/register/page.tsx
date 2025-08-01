@@ -13,12 +13,12 @@ function Register() {
     e.preventDefault()
     setError('')
     setIsLoading(true)
-    const res = await fetch('/api/auth/register', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
       method: 'POST',
       body : JSON.stringify({
         fullname: e.target.fullname.value,
         email : e.target.email.value,
-        password: e.target.password.value
+        password: e.target.password.value,
       })
     })
     
@@ -86,7 +86,7 @@ function Register() {
 
           <p className="mt-8 text-center text-sm/4 text-gray-500">
             Already a member? 
-            <Link href="/login" className="font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all hover:opacity-80"> Login</Link>
+            <Link href="/login" className={`font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all hover:opacity-80 ${isLoading ? 'pointer-events-none' : ''}`}> Login</Link>
           </p>
         </div>
       </div>

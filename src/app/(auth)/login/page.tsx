@@ -88,10 +88,13 @@ function LoginPage() {
 
           <p className="mt-6 text-center text-sm text-gray-500">
             Not a member?
-            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all hover:opacity-80"> Register</Link>
+            <Link 
+              href="/register" 
+              className={`font-semibold text-indigo-600 hover:text-indigo-500 duration-700 transition-all hover:opacity-80 ${isLoading ? 'pointer-events-none' : ''}`}> Register
+            </Link>
           </p>
           <div 
-            className="flex items-center justify-center mt-4 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all"
+            className={`flex items-center justify-center mt-4 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all ${isLoading ? 'pointer-events-none' : ''}`}
             onClick={() => signIn('google',{callbackUrl: '/review/form', redirect: false})}>
             <Image src='/icons/google.png' 
                    className='w-5 h-5'

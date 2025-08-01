@@ -64,7 +64,7 @@ export async function addReview(data: {name: string, review: string, rating: num
     }
   }
 
-export async function register(data: {fullname: string, email:string, password: string, role?:string}){
+export async function register(data: {fullname: string, email:string, password: string, image: string}){
   const q = query(collection(firestore,'users'), where('email','==',data.email))
   
   const snapshot = await getDocs(q)
@@ -78,6 +78,7 @@ export async function register(data: {fullname: string, email:string, password: 
     return {status:false, message:'email already exist', statusCode: 401}
   } else {
     data.password = await bcrypt.hash(data.password,10)
+    data.image = '/profile/profile.png'
     
     try {
       await addDoc(collection(firestore,'users'),data)
@@ -88,8 +89,8 @@ export async function register(data: {fullname: string, email:string, password: 
   }
 }
 
-export async function login(data:{email: string}){
-  const q = query(collection(firestore,'users'), where('email','==',data.email))
+export async function login(email: string){
+  const q = query(collection(firestore,'users'), where('email','==',email))
 
   const snapshot = await getDocs(q)
 
