@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/login/','/register/'],
     },
-    sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: 'https://dlooti.vercel.app/sitemap.xml',
   }
 }
