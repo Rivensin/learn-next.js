@@ -26,7 +26,7 @@ export default function Review(){
   )},[session?.user.name,review.data])
   
   return (
-    <div className="overflow-hidden ml-4 lg:ml-28">
+    <div className="overflow-hidden px-4 lg:ml-28">
       <motion.div
         ref={reviewTitle.ref}
         variants={cardVariant}
@@ -96,7 +96,7 @@ export default function Review(){
           ))
         : 
           Array.from({length : review.data?.length || 2}).map((_,index) => (
-            <div key={index} className="w-[568px] h-[230px] sm:w-[724px] sm:h-[206px] md:w-[981px] md:h-[182px] lg:w-[95%] lg:min-w-[436px] lg:max-w-[560px] lg:h-[254px] xl:min-w-[369px] xl:h-[230px] 2xl:w-[597px] 2xl:h-[230px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
+            <div key={index} className="px-4 min-w-[400px] max-w-[568px] h-[230px] sm:min-w-[583px] sm:max-w-[710px] sm:h-[206px] md:min-w-[711px] md:max-w-[966px] md:h-[182px] lg:min-w-[419px] lg:max-w-[546px] lg:h-[254px] xl:min-w-[359px] xl:max-w-[444px] xl:h-[230px] 2xl:min-w-[445px] 2xl:max-w-[569px] 2xl:h-[230px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
             </div>
           ))
       } 
@@ -157,7 +157,6 @@ export default function Review(){
             )
         )
         }
-        
         </motion.div>
     </div>
   )

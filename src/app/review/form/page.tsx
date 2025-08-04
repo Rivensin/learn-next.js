@@ -54,7 +54,7 @@ export default function FormReview() {
   }
 
   return (
-    <div className="overflow-hidden ">
+    <div className="overflow-hidden px-4">
       <motion.div
         ref={reviewTitle.ref}
         variants={cardVariant}

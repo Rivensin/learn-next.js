@@ -39,8 +39,13 @@ function LoginPage() {
     }
   }
 
+  const loginGoogle = () => {
+    setIsLoading(true)
+    signIn('google',{callbackUrl: '/review/form', redirect: false}) 
+  }
+
   return (
-    <div className="flex flex-col justify-center pt-4 lg:px-10 mt-32">
+    <div className="flex flex-col justify-center pt-4 px-4 lg:px-10 mt-32">
       <div className='mx-auto shadow-gray-400 p-10 rounded-lg shadow-md border-t-2'>
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Image 
@@ -95,7 +100,7 @@ function LoginPage() {
           </p>
           <div 
             className={`flex items-center justify-center mt-4 border-2 border-slate-200 rounded-xl  p-1 cursor-pointer hover:shadow-lg hover:bg-slate-200 duration-500 transition-all ${isLoading ? 'pointer-events-none' : ''}`}
-            onClick={() => signIn('google',{callbackUrl: '/review/form', redirect: false})}>
+            onClick={loginGoogle}>
             <Image src='/icons/google.png' 
                    className='w-5 h-5'
                    unoptimized

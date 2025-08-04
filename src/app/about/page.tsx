@@ -12,8 +12,8 @@ function About() {
   const aboutPicture = useScrollAnimation('-100px',true)
 
   return (
-    <div className="duration-700 transition-all overflow-hidden">
-      <div className="ml-4 sm:ml-16 md:ml-16 lg:ml-28 ">
+    <div className="overflow-hidden px-4">
+      <div className="sm:ml-16 md:ml-16 lg:ml-28 ">
       <title>About | Dlooti</title>
         <motion.div
           ref={aboutTitle.ref}
@@ -76,7 +76,7 @@ function About() {
         variants={cardVariant}
         initial='hiddenRight'
         animate={aboutPicture.isInView ? 'visibleX' : ''} 
-        className="ml-4 flex mt-10 justify-evenly">
+        className="flex mt-10 justify-evenly">
         <div className="mb-2 mr-2">
           <Image
             src="/cover/cover.jpg"

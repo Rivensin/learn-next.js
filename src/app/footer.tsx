@@ -71,19 +71,19 @@ export default function Footer() {
         variants={cardVariant} 
         initial='hiddenBot'
         animate={purpleBg.isInView ? 'visibleY' : ''} 
-        className="bg-purpleBg pb-10 lg:flex lg:items-center lg:justify-evenly">
+        className="bg-purpleBg pb-10 lg:flex lg:items-center lg:justify-evenly px-4">
         <motion.div
           ref={purpleBgContent.ref}
           variants={cardVariant} 
           initial='hiddenBot'
           animate={purpleBgContent.isInView ? 'visibleY' : ''} 
-          className="flex flex-col flex-wrap justify-center pl-4">
+          className="flex flex-col flex-wrap justify-center">
           <Image 
             src='/icons/icon-removebg-preview.png' 
             alt='dlooti-logo'
-            quality={75}
+            unoptimized
             priority
-            className='-ml-4 w-40 h-36'
+            className='-ml-6 w-40 h-36'
             width={150}
             height={100}
           />
@@ -97,7 +97,7 @@ export default function Footer() {
           variants={cardVariant} 
           initial='hiddenBot'
           animate={purpleBgContent2.isInView ? 'visibleY' : ''}
-          className="mt-4 pb-4 pl-4 flex">
+          className="mt-4 pb-4 flex">
           <div className="mr-24">
             <div className="text-pinkBg text-xl font-semibold mt-4">About</div>
             <div className="flex flex-col mt-2 text-white">

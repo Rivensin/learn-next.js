@@ -51,7 +51,7 @@ export default function Home() {
         variants={cardVariant}
         initial='hiddenBot'
         animate={isInView ? 'visibleY' : ''}
-        className="ml-4 mt-10 text-3xl">
+        className="mx-4 mt-10 text-3xl">
         Indulge yourself with our premium bread and pastries.
       </motion.p>
       
