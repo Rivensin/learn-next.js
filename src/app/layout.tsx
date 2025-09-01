@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     description: 'Dlooti Home Bakery for Everyone',
     images: [
       {
-        url: 'icons/icon.png',
+        url: '/icons/icon.png',
         width: 800,
         height: 600,
       }
