@@ -170,9 +170,7 @@ export default function FormReview() {
               </div>  
               {errors.rating && (<p className="text-red-500 mb-3">**Rating Perlu Di isi</p>)}
             </div>
-            
           </div>
-          
   
           {visible && (
             <motion.div 
