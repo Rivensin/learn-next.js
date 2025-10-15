@@ -1,50 +1,8 @@
 import FormReview from '@/app/review/form/page'
 import '@testing-library/jest-dom'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-
-//Mock UseSession
-jest.mock('next-auth/react', () => ({
-  __esModule: true,
-  ...jest.requireActual('next-auth/react'),
-  useSession: jest.fn(),
-}))
-
-const mockedUseSession = useSession as jest.Mock
-
-//supaya fetch() tidak beneran call API.
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    ok: true,
-    json: () => Promise.resolve({}),
-  })
-) as jest.Mock
-
-//supaya useRouter() tidak benar-benar navigate.
-
-const routerPushMock = jest.fn()
-
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(() => ({ push: routerPushMock })),
-  usePathname: jest.fn(() => '/review/form'),
-  useSearchParams: jest.fn(() => new URLSearchParams()),
-}))
-
-//Mock FramerMotion
-class MockIntersectionObserver {
-  root: Element | null = null
-  rootMargin: string = ''
-  thresholds: ReadonlyArray<number> = []
-
-  constructor() {}
-  observe() {}
-  disconnect() {}
-  unobserve() {}
-  takeRecords() { return [] }
-}
-
-global.IntersectionObserver = MockIntersectionObserver as any
+import { mockedUseSession } from './test-utils/setupTest'  
+import { routerPushMock, routerBackMock } from './test-utils/setupTest'
 
 describe('Form Review', () => {
   beforeEach(() => {
@@ -88,7 +46,6 @@ describe('Form Review', () => {
   })
 
   it('mengirim data dan berhasil redirect ke /review', async() => {
-    const router = useRouter() as unknown as { push: jest.Mock }
 
     fireEvent.input(screen.getByLabelText(/review/i),{
       target: { value: 'enak banget'}
@@ -101,8 +58,20 @@ describe('Form Review', () => {
     fireEvent.click(screen.getByRole('button', { name: /submit/i}))
     
     await waitFor(() => {
-      expect(fetch).toHaveBeenCalled()
+      expect(fetch).toHaveBeenCalledWith(
+        expect.stringContaining('/api/review/addReview'),
+        expect.objectContaining({
+        method: 'POST',
+      })
+      )
       expect(routerPushMock).toHaveBeenCalledWith('/review')
+    })
+  })
+
+  it('click button back', async() => {
+    fireEvent.click(screen.getByRole('button', {name : /back/i }))
+    await waitFor(() => {
+      expect(routerBackMock).toHaveBeenCalled()
     })
   })
 })
