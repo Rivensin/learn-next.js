@@ -5,7 +5,7 @@ import useSWR from "swr"
 import Image from "next/image"
 import { signIn, useSession, signOut } from "next-auth/react"
 import Button from "@/components/fragments/Button"
-import {useEffect, useMemo, useState } from "react"
+import { useMemo } from "react"
 import Link from "next/link"
 
 export default function Review(){
@@ -14,8 +14,9 @@ export default function Review(){
 
   const fetcher = (url: string) => fetch(url).then(res => res.json())
   const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/review`,fetcher)
+  if(error) return <div>Error Fetch</div>
   const {data: session, status} : {data: any, status: string} = useSession()
-
+  
   const review = {
     data : data?.data
   }
@@ -68,7 +69,7 @@ export default function Review(){
               <div>
                 <Image
                   src={review.image}
-                  alt='profile'
+                  alt={review.image}
                   className="object-contain rounded-full"
                   width={50}
                   height={70}>
@@ -96,7 +97,7 @@ export default function Review(){
           ))
         : 
           Array.from({length : review.data?.length || 2}).map((_,index) => (
-            <div key={index} className="px-4 min-w-[400px] max-w-[568px] h-[230px] sm:min-w-[583px] sm:max-w-[710px] sm:h-[206px] md:min-w-[711px] md:max-w-[966px] md:h-[182px] lg:min-w-[419px] lg:max-w-[546px] lg:h-[254px] xl:min-w-[359px] xl:max-w-[444px] xl:h-[230px] 2xl:min-w-[445px] 2xl:max-w-[569px] 2xl:h-[230px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
+            <div key={index} data-testid="skeleton" className="px-4 min-w-[400px] max-w-[568px] h-[230px] sm:min-w-[583px] sm:max-w-[710px] sm:h-[206px] md:min-w-[711px] md:max-w-[966px] md:h-[182px] lg:min-w-[419px] lg:max-w-[546px] lg:h-[254px] xl:min-w-[359px] xl:max-w-[444px] xl:h-[230px] 2xl:min-w-[445px] 2xl:max-w-[569px] 2xl:h-[230px] bg-slate-300 rounded-lg shadow-md animate-pulse duration-700 ease-out transition-all">
             </div>
           ))
       } 
