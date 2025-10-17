@@ -114,7 +114,7 @@ function ProductPage(props: any) {
         }
         {!filteredProduct && (
           Array.from({ length: 6 }).map((_, index) => (
-          <div key={index} className="h-[320px] sm:h-[368px] md:h-[400px] lg:h-[464px] xl:h-[464px] 2xl:h-[464px] bg-slate-300 animate-pulse"/>
+          <div key={index} data-testid='skeleton' className="h-[320px] sm:h-[368px] md:h-[400px] lg:h-[464px] xl:h-[464px] 2xl:h-[464px] bg-slate-300 animate-pulse"/>
           ))
         )}
         

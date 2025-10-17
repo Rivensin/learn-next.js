@@ -34,9 +34,12 @@ export const mockedSWR = useSWR as jest.Mock
 
 export const routerPushMock = jest.fn()
 export const routerBackMock = jest.fn()
+export const routerReplaceMock = jest.fn()
+export const useParamsMock = jest.fn()
 
 jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(() => ({ push: routerPushMock, back: routerBackMock })),
+  useParams: useParamsMock,
+  useRouter: jest.fn(() => ({ push: routerPushMock, back: routerBackMock, replace: routerReplaceMock })),
   usePathname: jest.fn(),
   useSearchParams: jest.fn(() => new URLSearchParams()),
 }))

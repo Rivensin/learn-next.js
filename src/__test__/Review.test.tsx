@@ -16,7 +16,8 @@ describe('Review', () => {
             image: "/profile/profile.png",
             name: "Tamara",
             rating: "4",
-            tanggal: "2025-08-01T16:34:39.100Z"
+            tanggal: "2025-08-01T16:34:39.100Z",
+            id: 1
           }
         ]
       },
@@ -150,7 +151,8 @@ describe('Review', () => {
             image: "/profile/profile.png",
             name: "Tamara",
             rating: "4",
-            tanggal: "2025-08-01T16:34:39.100Z"
+            tanggal: "2025-08-01T16:34:39.100Z",
+            id: 1
           }
         ]
       },
