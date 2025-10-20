@@ -6,26 +6,29 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 
 function LoginPage() {
-  
   const router = useRouter()
   const [error,setError] = useState('')
   const [isLoading,setIsLoading] = useState(false)  
   // const searchParams = useSearchParams()
   // const callbackURL = searchParams.get('callbackUrl') || '/'   
   
-  const handleLogin = async(e: any) => {
+  const handleLogin = async(e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true)
     e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
+
     try{
       const res = await signIn('credentials', {
         redirect: false,
-        email: e.target.email.value,
-        password: e.target.password.value,
+        email,
+        password,
         callbackUrl: '/review/form'
       })
 
       if(!res?.error){
-        setIsLoading(false)
         router.push('/review/form')
       } else {
         if(res.status === 401){
@@ -62,7 +65,7 @@ function LoginPage() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={e => handleLogin(e)}>
+          <form aria-label='login form' className="space-y-6" onSubmit={e => handleLogin(e)}>
             <div>
               <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900 ">Email address</label>
               <div className="mt-2">

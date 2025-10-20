@@ -7,10 +7,6 @@ import { useEffect, useState } from 'react'
 
 function Navbar() {
   const pathname = usePathname()
-  // const disableNavbar = ['/login', '/register']
-  // if(disableNavbar.includes(pathname)){
-  //   return null
-  // }
 
   const {data: session, status} : {data: any, status: string} = useSession()
   const [hamburgerMenu,setHamburgerMenu] = useState(false)
@@ -36,9 +32,9 @@ function Navbar() {
   return (
     <header className='w-full flex bg-whiteNav items-center justify-between lg:justify-center absolute top-0 left-0 z-[9999] 4xl:py-2 4xl:px-5'>
       <div className='flex items-center'>
-        <button type='button' className='ml-2 mr-3 lg:hidden' onClick={() => setHamburgerMenu(prev => !prev)}>
+        <button type='button' className='ml-2 mr-3 lg:hidden' onClick={() => setHamburgerMenu(prev => !prev)} data-testid='button-line'>
           <span className='w-[30px] hamburger-line'></span>
-          <span className={`${hamburgerMenu ? 'w-[30px]' : 'w-[18px]'} hamburger-line duration-700`}></span>
+          <span className={`${hamburgerMenu ? 'w-[30px]' : 'w-[18px]'} hamburger-line duration-700`} data-testid='line'></span>
           <span className='w-[30px] hamburger-line'></span>
         </button>  
 
@@ -51,6 +47,7 @@ function Navbar() {
             width={150}
             height={100}
             priority
+            data-testid='image-line'
             onClick={() => setHamburgerMenu(false)}
           />
         </Link>
@@ -115,27 +112,5 @@ function Navbar() {
     </header>
   ) 
 }
-      {/* <div>
-        {status === 'unauthenticated' ? (
-          <button 
-            className='text-black cursor-pointer '
-            onClick={() => signIn()}>
-              Login
-          </button>
-        ) : (
-          <div className='flex justify-center items-center'>
-            <Image src='/images/profile.png' className='w-10 h-10 rounded-full mr-3' alt='profile' width={100} height={100}/>
-            <h4 className='text-black mr-3'>{session?.user?.name}</h4>
-            <button 
-              className='bg-white rounded-md px-3 h-7 text-sm cursor-pointer'
-              onClick={() => signOut()}>
-                Logout 
-          </button>
-          </div>
-        )}
-      </div> */}
-
-  
-   
 
 export default Navbar

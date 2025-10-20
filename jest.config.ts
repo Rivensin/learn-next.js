@@ -15,11 +15,16 @@ const config: Config = {
   collectCoverageFrom: [ // ✅ Specify what to include in coverage
     'src/**/*.{js,ts,jsx,tsx}',
     '!src/app/api/**',
+    '!src/app/not-found.tsx',
+    '!src/app/robots.ts',
+    '!src/app/sitemap.ts',
     '!src/lib/**',
     '!src/components/**',
     '!src/services/**',
     '!src/**/loading.tsx',
     '!src/**/layout.tsx',
+    '!src/**/default.tsx',
+    '!src/**/error.tsx',
     '!src/middleware/**',
     '!src/middleware.ts'], 
   testMatch: ['**/__tests__/**/*.(spec|test).ts?(x)', '**/?(*.)+(spec|test).ts?(x)'], // ✅ Optional: match test files explicitly

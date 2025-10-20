@@ -9,21 +9,22 @@ function Register() {
   const [error,setError] = useState('')
   const [isLoading,setIsLoading] = useState(false)
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError('')
     setIsLoading(true)
+
+    const formData = new FormData(e.currentTarget)
+    const fullname = formData.get('fullname') as string
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
       method: 'POST',
-      body : JSON.stringify({
-        fullname: e.target.fullname.value,
-        email : e.target.email.value,
-        password: e.target.password.value,
-      })
+      body : JSON.stringify({fullname,email,password})
     })
     
     if(res.status === 200){
-      e.target.reset()
       setIsLoading(false)
       router.push('/login')
     } else {
@@ -48,7 +49,7 @@ function Register() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={e => handleSubmit(e)}>
+          <form aria-label='register form' className="space-y-6" onSubmit={e => handleSubmit(e)}>
             <div>
               <label htmlFor="name" className="block text-sm/6 font-medium text-gray-900">Full Name</label>
               <div className="mt-2">

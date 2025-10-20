@@ -34,7 +34,6 @@ describe('Product Page', () => {
             image: '/product/tiramisu-cake/tiramisu-cake.jpeg',
             name: 'Tiramisu Cake'
           },
-
         ]
       },
       error: null,
@@ -50,8 +49,9 @@ describe('Product Page', () => {
     render(<ProductPage />)
   
     const img = await screen.findByAltText(/Burnt Cheese Cake Brownie \(20x10\)/i)
-
+    
     expect(img.getAttribute('src')).toContain('/product/burnt-cheese-cake/')
+    
   })
 
   it('click button custom cake to display product', async() => {
