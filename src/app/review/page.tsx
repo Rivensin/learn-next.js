@@ -14,12 +14,19 @@ export default function Review(){
 
   const fetcher = (url: string) => fetch(url).then(res => res.json())
   const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/review`,fetcher)
+  
   if(error) return <div>Error Fetch</div>
   const {data: session, status} : {data: any, status: string} = useSession()
   
   const review = {
     data : data?.data
   }
+
+  const sortedReview = review.data ? [...review.data].sort((a: any, b: any) => {
+    return new Date(b.tanggal) - new Date(a.tanggal)
+  }) : []
+
+  console.log(review.data)
   
   const hasReview = useMemo(() => {
     if(!review?.data || !session?.user?.name) return null
@@ -63,7 +70,7 @@ export default function Review(){
         
       {!isLoading 
         ?   
-          review.data?.map((review: any) => (
+          sortedReview.map((review: any) => (
           <div key={review.id} className="bg-white rounded-lg border-2 border-gray-300 shadow-lg px-2 py-4 hover:duration-700 hover:ease-in-out hover:border-pinkBg hover:-translate-y-2 transition-all mb-1">
             <div className="flex justify-start">
               <div>

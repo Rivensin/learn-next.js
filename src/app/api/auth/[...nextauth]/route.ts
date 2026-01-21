@@ -41,7 +41,6 @@ const authOptions : NextAuthOptions =
         } else {
           return null
         }
-
       }
     }),
     GoogleProvider({
