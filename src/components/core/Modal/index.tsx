@@ -1,10 +1,10 @@
 'use client'
-import { useRouter } from "next/navigation"
+import { useParams, useRouter, useSearchParams } from "next/navigation"
 import { MouseEventHandler, useRef } from "react"
-import { easeOut, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { cardVariant } from "@/components/fragments/motion"
 
-export default function Modal({children} : {children:React.ReactNode}){
+export default function Modal({category,children} : {category: string, children:React.ReactNode}){
   const overlay = useRef(null)
   const router = useRouter()
 

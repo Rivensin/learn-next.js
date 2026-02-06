@@ -3,13 +3,16 @@ import dynamic from "next/dynamic"
 import useSWR from "swr"
 import { useParams } from "next/navigation"
 import Image from "next/image"
+import { useEffect } from "react"
+import { div } from "framer-motion/client"
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function DetailProductPage(props: any){
   const {id} = useParams()
+  
   const {data, error, isLoading} = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product?id=${id}`, fetcher)
-  if(isLoading) return null
+  if (isLoading) return null
   
   const product = {
     data: data?.data
@@ -33,7 +36,8 @@ export default function DetailProductPage(props: any){
         </div>
       </div>
     }
-)
+  )
+
   return (
     product.data?.image && (
     <Modal category={product.data?.category}>
@@ -49,7 +53,7 @@ export default function DetailProductPage(props: any){
       <div className="mt-6 -mb-3 md:mb-0">
         <h3>{product.data?.name}</h3>
       </div>
-    </Modal>
+    </Modal>  
     )
   )
   

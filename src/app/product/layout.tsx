@@ -2,10 +2,10 @@ export const metadata = {
   title: "Products | Dlooti",
 };
 
-export default function Layout({page,modal} : {page:React.ReactNode, modal:React.ReactNode}){
+export default function Layout({modal,children} : {modal:React.ReactNode, children:React.ReactNode}){
   return (
     <>
-      {page}
+      {children}
       {modal}
     </>
   )

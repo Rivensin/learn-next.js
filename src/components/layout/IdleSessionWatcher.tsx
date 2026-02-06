@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 
 export default function IdleSessionWatcher(){
   const {data :session } = useSession()
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null) 
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null) 
   
   // Set idle timeout (20 minutes)
   const startIdleTimer = () => {

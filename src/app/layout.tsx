@@ -1,12 +1,13 @@
 // 'use client'
+import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Poppins, Roboto } from "next/font/google";
-import "./globals.css";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper";
 import ScrollTop from "@/components/layout/ScrollTop";
 import IdleSessionWatcher from "@/components/layout/IdleSessionWatcher";
+import ClientOnly from "@/components/layout/ClientOnly";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -62,8 +63,10 @@ export default function RootLayout({children,} : Readonly<{children: React.React
     <html lang="en">
       <body className={`${poppins.className} ${roboto.variable} scroll-smooth`} >
         <SessionProviderWrapper>
+          <ClientOnly>
           <IdleSessionWatcher />
           <ScrollTop />
+          </ClientOnly>
           <Navbar /> 
             {children}
           <Footer />

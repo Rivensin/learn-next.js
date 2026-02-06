@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { fireEvent, screen, waitFor, render } from "@testing-library/react"
 import { mockedSWR, routerReplaceMock, useParamsMock } from './test-utils/setupTest'
-import ProductPage from '@/app/product/@page/[category]/page'
+import ProductPage from '@/app/product/[category]/page'
 
 
 describe('Product Page', () => {
